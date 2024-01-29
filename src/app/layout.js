@@ -1,6 +1,6 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ImportBsJS from "./importBootStpJs";
+import ImportJSFiles from "./importJsFiles";
 
 import "../css/animate.css";
 import "../css/fontawesome.css";
@@ -12,6 +12,7 @@ import "../css/image-gallery.css";
 
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { BackToTopButton } from "../components/BackToTopButton";
 
 export const metadata = {
   title: "Mell Fashion Boutique",
@@ -24,7 +25,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body>
-        <ImportBsJS />
+        <ImportJSFiles />
+        <BackToTopButton />
         <Navbar/>
         {children}
         <Footer /> 

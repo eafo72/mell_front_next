@@ -23,11 +23,6 @@ const Terminos = async () => {
   return (
     <>
       <ToastContainer />
-      <div className="backtotop">
-        <button className="scroll">
-          <i className="far fa-arrow-up"></i>
-        </button>
-      </div>
       <main>
         <section
           className="breadcrumb_section"

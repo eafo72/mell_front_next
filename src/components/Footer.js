@@ -62,7 +62,7 @@ export async function Footer() {
                     {categories &&
                       categories.map((item, index) => (
                         <li key={index}>
-                          <Link href={`/categories/Todas/${item.nombre}`}>
+                          <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`}>
                             {item.nombre}
                           </Link>
                         </li>

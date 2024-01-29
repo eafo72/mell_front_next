@@ -41,16 +41,10 @@ const Page = async () => {
 
   return (
     <div className=".body">
-      <div className="backtotop">
-        <button className="scroll">
-          <i className="far fa-arrow-up"></i>
-        </button>
-      </div>
-
       <main>
         {/*
-    <SideMenu></SideMenu>
-    */}
+        <SideMenu></SideMenu>
+        */}
 
         <section className="slider_section main_slider_1">
           <div

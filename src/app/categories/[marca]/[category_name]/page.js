@@ -52,11 +52,6 @@ const AllCategories = async ({params}) => {
   return (
     <>
     <ToastContainer />
-    <div className="backtotop">
-        <button className="scroll">
-          <i className="far fa-arrow-up"></i>
-        </button>
-     </div>
     <main>
     <section
           className="breadcrumb_section"
@@ -181,14 +176,14 @@ const AllCategories = async ({params}) => {
                                       id=""
                                       role="tabpanel"
                                     >
-                                      <a className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                      <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
                                       >
                                         <img
                                           src={`${item.foto_principal}`}
                                           alt={`${item.foto_principal}`}
                                           className="img-fluid"
                                         />
-                                      </a>
+                                      </Link>
                                     </div>
 
                                    
@@ -202,9 +197,9 @@ const AllCategories = async ({params}) => {
                                 {/*info producto*/}
                                 <div className="shop_content">
                                   <h3 className="shop_title">
-                                    <a href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                    <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
                                     >{item.nombre}
-                                    </a>
+                                    </Link>
                                   </h3>
                                   <div className="shop_price">
                                     <span className="sale_price">
@@ -274,14 +269,14 @@ const AllCategories = async ({params}) => {
                   id=""
                   role="tabpanel"
                 >
-                 <a className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                 <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
                   >
                     <img
                       src={`${item.foto_principal}`}
                       alt={`${item.foto_principal}`}
                       className="img-fluid"
                     />
-                  </a>
+                  </Link>
                 </div>
 
                 
@@ -295,8 +290,8 @@ const AllCategories = async ({params}) => {
             {/*info producto*/}
             <div className="shop_content">
               <h3 className="shop_title">
-              <a href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
-                >{item.nombre}</a>
+              <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                >{item.nombre}</Link>
               </h3>
               <div className="shop_price">
                 <span className="sale_price">

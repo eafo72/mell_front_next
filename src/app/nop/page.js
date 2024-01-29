@@ -25,14 +25,8 @@ const Aviso = async () => {
   return (
     
     <>
-     <ToastContainer />
-     <div className="backtotop">
-        <button className="scroll">
-          <i className="far fa-arrow-up"></i>
-        </button>
-     </div>
+    <ToastContainer />
     <main>
-
       <section
         className="breadcrumb_section"
         style={{ backgroundColor:"#d4d8dd" }}

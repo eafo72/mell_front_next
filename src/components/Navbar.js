@@ -130,7 +130,7 @@ export async function Navbar() {
   
                           {categories && categories.map((item,index) => (
                             
-                            <li key={index}><Link href={`/categories/Todas/${item.nombre}`}>{item.nombre}</Link></li>
+                            <li key={index}><Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`}>{item.nombre}</Link></li>
                           ))}
                         </ul>
                       </li>)
