@@ -7,6 +7,8 @@ import Select from "react-select";
 
 import ImageGallery from "react-image-gallery";
 
+import { FacebookShareButton, FacebookIcon } from "react-share";
+
 export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
   const [talla, setTalla] = useState();
   const [color, setColor] = useState();
@@ -23,6 +25,8 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
       },
       );
   }
+
+  const currentPageUrl = window.location.href;  
 
   const handleColorChange = (codigo, label) => {
     setColor({ value: codigo, label: label });
@@ -242,7 +246,11 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
                     <h4 className="title_text">Compartir:</h4>
                     <ul className="social_primary ul_li">
                       <li>
-                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+                          <FacebookShareButton
+                          url={currentPageUrl}
+                          >
+                          <FacebookIcon></FacebookIcon>
+                          </FacebookShareButton>
                       </li>
                     </ul>
                   </div>
