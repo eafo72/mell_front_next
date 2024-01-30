@@ -241,7 +241,9 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
                   <div className="sd_info_layout mb-0">
                     <h4 className="title_text">Compartir:</h4>
                     <ul className="social_primary ul_li">
-                      <li></li>
+                      <li>
+                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+                      </li>
                     </ul>
                   </div>
                 </div>

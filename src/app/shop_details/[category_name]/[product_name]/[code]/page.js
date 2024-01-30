@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const generateMetadata = ({params}) =>{
 
+
+
 return  {
     openGraph: {
         title: params.product_name,
@@ -20,7 +22,7 @@ return  {
         siteName: 'Mell Fashion Boutique',
         images: [
           {
-            url: 'http://agencianuba.com/mell_images/og?title=Next.js', 
+            url: `http://agencianuba.com/mell_front_images/productos/${params.code}.jpg`, 
             width: 400,
             height: 600,
           },
