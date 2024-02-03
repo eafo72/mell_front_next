@@ -2,14 +2,27 @@
 
 import { useState } from "react";
 
+import Link from "next/link";
+
+import Modal from 'react-modal';
+
 import Select from "react-select";
 
+import { useCartStore } from '../../../../../store/cart';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ImageGallery from "react-image-gallery";
 
 import { FacebookShareButton, FacebookIcon } from "react-share";
 
-export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
+export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) => {
+
+  const [showContinueModal, setContinueModal] = useState(false);
+
+  const addCartItem = useCartStore((state) => state.add_cart_item)
+
   const [talla, setTalla] = useState();
   const [color, setColor] = useState();
   const [cantidad, setCantidad] = useState(1);
@@ -68,15 +81,17 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
       mostrarMensaje("Debes seleccionar una talla");
     } else if (cantidad === "" || cantidad === undefined) {
       mostrarMensaje("Debes escribir una cantidad");
+    } else if (cantidad > stockTotal) {
+      mostrarMensaje("La existencia es de " + stockTotal );
     } else {
-      dispatch({
-        type: "ADD_TO_CART",
-        value: {
-          foto_principal,
-          nombre_original,
-          marca,
-          categoria,
-          subcategoria,
+
+     
+        addCartItem({
+          foto_principal: producto.foto_principal,
+          nombre_original: producto.nombre_original,
+          marca: producto.marca,
+          categoria: producto.categoria,
+          subcategoria: producto.subcategoria,
           codigo: producto.codigo + "-" + talla.value + "-" + color.value,
           codigo_producto: producto.codigo,
           nombre_producto: producto.nombre,
@@ -85,36 +100,33 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
           codigo_color: color.value,
           nombre_color: color.label,
           cantidad: parseInt(cantidad),
-          precio,
-          total: parseInt(cantidad) * precio,
-        },
-      });
-
-      /*
-          setCart((cart) => [
-            ...cart,
-            {
-              foto_principal,
-              nombre_original,
-              marca,
-              categoria,
-              subcategoria,
-              codigo: producto.codigo + "-" + talla.value + "-" + color.value,
-              codigo_producto: producto.codigo,
-              nombre_producto: producto.nombre,
-              codigo_talla: talla.value,
-              nombre_talla: talla.label,
-              codigo_color: color.value,
-              nombre_color: color.label,
-              cantidad: parseInt(cantidad),
-              precio,
-              total: parseInt(cantidad) * precio,
-            },
-          ]);
-          */
+          precio: producto.precio,
+          total: parseInt(cantidad) * producto.precio,
+        })
 
       mostrarAviso("Producto Agregado");
+      setContinueModal(true)  
+
+
+
+
     }
+  };
+
+  function closeModal() {
+    setContinueModal(false);
+  }
+
+  const modalCustomStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      animation: 'fadeIn 1s'
+    },
   };
 
   const customStyles = {
@@ -140,6 +152,8 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
   };
 
   return (
+    <>
+    <ToastContainer />
     <section className="shop_details bg_gray sec_space_small">
       <div className="container">
         <div className="row ">
@@ -261,6 +275,21 @@ export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
         </div>
       </div>
     </section>
+    <Modal
+        isOpen={showContinueModal}
+        style={modalCustomStyles}
+        ariaHideApp={false}
+      >
+        <ul style={{listStyle:"none",display:"flex",padding:"0px",margin:"0px"}}>
+          <li>
+            <button className="btn btn_primary btn_rounded text-uppercase" style={{padding:"15px",margin:"10px"}} onClick={closeModal}>Continuar comprando</button>
+          </li>
+          <li>
+            <Link href="/cart"><button className="btn btn_secondary btn_rounded text-uppercase" style={{padding:"15px",margin:"10px"}}>Ir al carrito</button></Link>
+          </li>
+        </ul>
+      </Modal>
+    </>
   );
 };
 

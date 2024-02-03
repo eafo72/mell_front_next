@@ -6,8 +6,7 @@ import clienteAxios from "../../../../../config/axios";
 import { ProductCard } from "./productCard";
 import { RelatedProducts } from "./relatedProducts";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 export const generateMetadata = ({params}) =>{
@@ -45,6 +44,7 @@ const Shop_details = async ({params}) => {
   let allSizes;
   let fotos_carrusel;
   let productosRelacionados;
+  let stockTotal;
 
   const getProduct = async () => {
     try {
@@ -65,22 +65,37 @@ const Shop_details = async ({params}) => {
       fotos_carrusel = res.data.single[0].fotos_carrusel
           
       productosRelacionados = res.data.related_products
-
       
-
-
       
     } catch (error) {
       console.log(error);
     }
+
+
+    try {
+      //getStock
+      const res2 = await clienteAxios.get(`/almacen/stock-codigo/` + producto.codigo +`-`+ producto.talla[0].value  +`-`+ producto.color[0].value);
+            
+      //console.log(res2.data.stock[0].stockTotal);
+
+      stockTotal = res2.data.stock[0].stockTotal;
+
+    } catch (error) {
+      console.log(error);
+    }
+     
   };
 
+   
+
+  
   await getProduct();
+  
 
 
   return (
     <>
-    <ToastContainer />
+    
     <main>
       {/*
       <SideMenu></SideMenu>
@@ -114,7 +129,7 @@ const Shop_details = async ({params}) => {
         </div>
       </section>
 
-      <ProductCard fotos_carrusel={fotos_carrusel} producto={producto} allSizes={allSizes}/>
+      <ProductCard stockTotal={stockTotal} fotos_carrusel={fotos_carrusel} producto={producto} allSizes={allSizes}/>
 
       <RelatedProducts productosRelacionados={productosRelacionados} codigo={params.code}/>
 
