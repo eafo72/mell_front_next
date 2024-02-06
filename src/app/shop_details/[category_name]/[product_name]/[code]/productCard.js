@@ -19,10 +19,10 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 
 export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) => {
 
-  const [showContinueModal, setContinueModal] = useState(false);
-
   const addCartItem = useCartStore((state) => state.add_cart_item)
+  const { cart } = useCartStore()
 
+  const [showContinueModal, setContinueModal] = useState(false);
   const [talla, setTalla] = useState();
   const [color, setColor] = useState();
   const [cantidad, setCantidad] = useState(1);
@@ -74,6 +74,8 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
   const addToCart = (event) => {
     event.preventDefault();
 
+    let onCart = 0;
+
     //validamos campos
     if (color === "" || color === undefined) {
       mostrarMensaje("Debes seleccionar un color");
@@ -81,11 +83,23 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       mostrarMensaje("Debes seleccionar una talla");
     } else if (cantidad === "" || cantidad === undefined) {
       mostrarMensaje("Debes escribir una cantidad");
-    } else if (cantidad > stockTotal) {
-      mostrarMensaje("La existencia es de " + stockTotal );
     } else {
 
-     
+      //buscamos si ya tiene el mismo producto en el carrito
+      for(let i=0; i < cart.length; i++){
+        if(cart[i]['codigo'] == producto.codigo + "-" + talla.value + "-" + color.value){
+          onCart = onCart + parseInt(cart[i]['cantidad']);
+          //console.log(onCart);
+        }
+      }
+
+      if ((cantidad + onCart) > stockTotal) {
+        if(onCart > 0){
+          mostrarMensaje("La existencia es de " + stockTotal + " y tienes " + onCart + " en el carrito de compras");
+        }else{
+          mostrarMensaje("La existencia es de " + stockTotal );
+        }
+      }else{
         addCartItem({
           foto_principal: producto.foto_principal,
           nombre_original: producto.nombre_original,
@@ -107,7 +121,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       mostrarAviso("Producto Agregado");
       setContinueModal(true)  
 
-
+      }
 
 
     }

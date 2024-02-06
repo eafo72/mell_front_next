@@ -44,8 +44,9 @@ export const useCartStore = create(persist((set,get) => ({
       cart: state.cart.map((element) => {
          if(item.codigo === element.codigo){
             encontrado = true;
-            element.cantidad = parseInt(element.cantidad) + parseInt(item.cantidad);
-            element.total =  (parseInt(element.cantidad) + parseInt(item.cantidad)) * element.precio
+            const suma = parseInt(element.cantidad) + parseInt(item.cantidad);
+            element.cantidad = suma;
+            element.total =  suma * element.precio;
         }
         return element;
       })

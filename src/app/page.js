@@ -279,13 +279,14 @@ const Page = async () => {
                                     id=""
                                     role="tabpanel"
                                   >
-                                    <button className="shop_image">
+                                    <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                    >
                                       <img
                                         src={`${item.foto_principal}`}
                                         alt={`${item.foto_principal}`}
                                         className="img-fluid"
                                       />
-                                    </button>
+                                    </Link>
                                   </div>
                                 </div>
                               </div>
@@ -293,34 +294,17 @@ const Page = async () => {
                               {/*info producto*/}
                               <div className="shop_content">
                                 <h3 className="shop_title">
-                                  <a href="#!">{item.nombre}</a>
+                                 <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                 >{item.nombre}</Link>
                                 </h3>
                                 <div className="shop_price">
                                   <span className="sale_price">
                                     $ {item.precio}
                                   </span>
-                                  {/*precio anterior
-                      <del>$120.00</del>
-                      */}
                                 </div>
                                 <ul className="shop_category ul_li">
                                   <li>{item.marca}</li>
-                                  {/*
-                      <li><a href={`/categories/${item.categoria}`} > {item.categoria}</a></li>
-                      */}
                                 </ul>
-                                {/*
-                    <div className="rating_wrap">
-                      <ul className="rating_star ul_li">
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li><i className="far fa-star"></i></li>
-                      </ul>
-                      <span className="shop_review_text">(7)</span>
-                    </div>
-                    */}
                               </div>
                             </div>
                           </div>
@@ -370,13 +354,14 @@ const Page = async () => {
                                           id=""
                                           role="tabpanel"
                                         >
-                                          <button className="shop_image">
+                                          <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                          >
                                             <img
                                               src={`${item.foto_principal}`}
                                               alt={`${item.foto_principal}`}
                                               className="img-fluid"
                                             />
-                                          </button>
+                                          </Link>
                                         </div>
                                       </div>
                                     </div>
@@ -384,34 +369,17 @@ const Page = async () => {
                                     {/*info producto*/}
                                     <div className="shop_content">
                                       <h3 className="shop_title">
-                                        <a href="#!">{item.nombre}</a>
+                                        <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
+                                        >{item.nombre}</Link> 
                                       </h3>
                                       <div className="shop_price">
                                         <span className="sale_price">
                                           $ {item.precio}
                                         </span>
-                                        {/*precio anterior
-                      <del>$120.00</del>
-                      */}
                                       </div>
                                       <ul className="shop_category ul_li">
-                                        <li>{item.categoria}</li>
-                                        {/*
-                      <li><a href={`/categories/${item.categoria}`} > {item.categoria}</a></li>
-                      */}
+                                        <li>{item.marca}</li>
                                       </ul>
-                                      {/*
-                    <div className="rating_wrap">
-                      <ul className="rating_star ul_li">
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li className="active"><i className="fas fa-star"></i></li>
-                        <li><i className="far fa-star"></i></li>
-                      </ul>
-                      <span className="shop_review_text">(7)</span>
-                    </div>
-                    */}
                                     </div>
                                   </div>
                                 </div>
@@ -424,12 +392,6 @@ const Page = async () => {
                     </div>
                   ))}
             </div>
-
-            {/*
-        <div className="load_more text-center">
-          <a className="btn border_black btn_rounded" href="#!">Ver más</a>
-        </div>
-        */}
           </div>
 
           {/*modal código descuento*/}

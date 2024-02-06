@@ -16319,6 +16319,7 @@ hr {
   .navbar-toggler-icon {
     width: auto;
     height: auto;
+    background-image: none !important;
   }
 
   .navbar-collapse {
