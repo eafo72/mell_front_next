@@ -268,7 +268,7 @@ const Page = async () => {
                         return index < 8 ? (
                           <div
                             key={item._id}
-                            className="col col-lg-3 col-md-4 col-sm-6"
+                            className="col-lg-3 col-md-4 col-sm-6 col-6"
                           >
                             <div className="shop_layout_1">
                               <div className="shop_image_wrap">
@@ -343,7 +343,7 @@ const Page = async () => {
                               return index < 8 ? (
                                 <div
                                   key={item._id}
-                                  className="col col-lg-3 col-md-4 col-sm-6"
+                                  className="col-lg-3 col-md-4 col-sm-6 col-6"
                                 >
                                   <div className="shop_layout_1">
                                     <div className="shop_image_wrap">

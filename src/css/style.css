@@ -15630,9 +15630,9 @@ hr {
   /* header - start */
   .header_icons_group > li > a,
 .header_icons_group > li > button {
-    font-size: 16px;
+    font-size: 28px;
   }
-
+  
   .header_section .cart_counter {
     height: 15px;
     font-size: 9px;
@@ -18893,6 +18893,9 @@ hr {
   width: 100px;
 }
 .logo_s {
-  height:60px !important;
-  width: 60px;
+  height:50px !important;
+  width: 50px;
+}
+.fa-bars{
+  font-size: 35px;
 }
