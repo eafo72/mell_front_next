@@ -6,23 +6,13 @@ import clienteAxios from "../config/axios";
 
 import logo from "../images/logo/logo-mell.png";
 
-import { NavbarCartButton } from "./navbarCartButton"
+
+import { NavbarOptions } from "./navbarOptions"
 
 export async function Navbar() {
 
    
-  const getActualButton = async () => {
-
-    //console.log(window.location.pathname);
-    //const combo =  (window.location.pathname).split("/");
-    //const actual = "/"+combo[1];
-    //console.log(actual);
-
-    const actual = "";
-    return actual;
-
-  }
-
+  
   const getSlogan = async () => {
     try {
       const res = await clienteAxios.get(`/empresa/single/658c57daea3c61d484acf6fb`);
@@ -43,13 +33,11 @@ export async function Navbar() {
       console.log(error);
     }
   };
-  
- 
+   
   
   const categories = await getCategories();
   const slogan = await getSlogan();
-  const actualButton  = await getActualButton();
-   
+     
 
   return (
     <>
@@ -81,114 +69,9 @@ export async function Navbar() {
               </Link>
             </div>
 
-            <div className="menu_wrap">
-              <nav className="main_menu navbar navbar-expand-lg">
-                <button id="btn_hamburger" className="mobile_menu_btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-controls="main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"><i className="fal fa-bars"></i></span>
-                </button>
-                <div className="main_menu_inner collapse navbar-collapse" id="main_menu_dropdown">
-                  <ul className="main_menu_list ul_li">
+            <NavbarOptions categories= {categories} />
 
-
-                    {actualButton && actualButton === "/" ?
-                    (
-                    <li className="active dropdown">
-                      <Link className="nav-link" href="/">
-                        Inicio
-                      </Link>
-                    </li>)
-                    :
-                    (
-                      <li className="dropdown">
-                        <Link className="nav-link" href="/">
-                          Inicio
-                        </Link>
-                      </li>)
-                    }   
-
-                    {actualButton && actualButton === "/categories" ?
-                    (
-                    <li className="active dropdown">
-                      <Link href="#" className="nav-link"  id="categories_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                      </Link>
-                      <ul className="submenu dropdown-menu" aria-labelledby="categories_submenu">
-
-                        {categories && categories.map((item,index) => (
-                          
-                          <li key={index}><Link href={`/categories/${item.nombre}`}>{item.nombre}</Link></li>
-                        ))}
-                      </ul>
-                    </li>)
-                    :
-                    (
-                      <li className="dropdown">
-                        <Link href="#" className="nav-link"  id="categories_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Categorías
-                        </Link>
-                        <ul className="submenu dropdown-menu" aria-labelledby="categories_submenu">
-  
-                          {categories && categories.map((item,index) => (
-                            
-                            <li key={index}><Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`}>{item.nombre}</Link></li>
-                          ))}
-                        </ul>
-                      </li>)
-
-                    }
-
-
-
-
-                    {actualButton && actualButton === "/faq" ?
-                    (<li className="active dropdown">
-                      <Link className="nav-link" href="/faq">
-                        FAQ
-                      </Link>
-                    </li>)
-                    :
-                    (<li className="dropdown">
-                    <Link className="nav-link" href="/faq">
-                      FAQ
-                    </Link>
-                    </li>)
-                    }
-
-                    {actualButton && actualButton === "/contact" ?
-                    (
-                    <li className="active dropdown">
-                      <Link className="nav-link" href="/contact">
-                        Contacto
-                      </Link>
-                    </li>)
-                    :
-                    (
-                      <li className="dropdown">
-                        <Link className="nav-link" href="/contact">
-                          Contacto
-                        </Link>
-                      </li>)    
-                    }
-
-
-                  </ul>
-                </div>
-              </nav>
-
-              <ul className="header_icons_group ul_li">
-                {/*
-                <li>
-                  <button type="button" className="main_search_btn" data-bs-toggle="collapse" data-bs-target="#main_search_collapse" aria-expanded="false" aria-controls="main_search_collapse">
-                    <i className="search_icon far fa-search"></i>
-                    <i className="search_close fal fa-times"></i>
-                  </button>
-                </li>
-                */}              
-                <li>
-                  <NavbarCartButton/>
-                </li>
-              </ul>
-            </div>
+            
           </div>
         </div>
 
