@@ -184,7 +184,7 @@ const Page = async () => {
             <div className="row align-items-center">
               <div className="col ">
                 <div className="section_title">
-                  <h2 className="title_text text-pink-light">
+                  <h2 className="title_text text-pink-light fontPlantagenet" >
                     Tendencia a gran precio
                   </h2>
                   <p className="mb-0">Contamos con más de 1000 opciones</p>
@@ -197,7 +197,7 @@ const Page = async () => {
                   {/*Active*/}
                   <li>
                     <button
-                      className="active"
+                      className="active fontPlantagenet"
                       data-bs-toggle="tab"
                       data-bs-target={`#${
                         categoriesSix &&
@@ -225,6 +225,7 @@ const Page = async () => {
                       .map((item) => (
                         <li key={item._id}>
                           <button
+                            className="fontPlantagenet"
                             data-bs-toggle="tab"
                             data-bs-target={`#${item.nombre
                               .split(" ")
