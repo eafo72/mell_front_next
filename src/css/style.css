@@ -304,8 +304,8 @@ hr {
 }
 
 .sec_space_small {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 /* top bottom space - end */
@@ -16930,7 +16930,7 @@ hr {
   }
 
   .breadcrumb_section {
-    padding: 90px 0px;
+    padding: 45px 0px;
     margin-top: 130px;
   }
 
@@ -17026,6 +17026,11 @@ hr {
         -ms-flex: 0 0 33.333%;
             flex: 0 0 33.333%;
     max-width: 33.333%;
+  }
+
+  .filter_input_group {
+    border:0;
+    margin-bottom: 0;
   }
 
   .filter_input_group .items_col > li {
@@ -17271,6 +17276,12 @@ hr {
     -webkit-box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
             box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
   }
+
+  .sec_space_small {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
 }
 /* media screen and (max-width: 991px) - end
 ================================================== */
@@ -17455,8 +17466,7 @@ hr {
             flex: 0 0 33.333%;
   }
 
-  .header_5 .content_wrap,
-.header_5.sticky .content_wrap {
+  .header_5 .content_wrap, .header_5.sticky .content_wrap {
     padding: 15px 0;
   }
 
@@ -17510,12 +17520,16 @@ hr {
     max-width: 50%;
   }
 
+  .filter_input_group {
+    border:0;
+    margin-bottom: 0;
+  }
+
   .filter_input_group .items_col > li {
     width: 100%;
   }
 
-  .dashboard_account_info .edit_btn_wrap,
-.dashboard_account_info .form_item {
+  .dashboard_account_info .edit_btn_wrap,  .dashboard_account_info .form_item {
     margin-bottom: 15px;
   }
 
@@ -17563,6 +17577,12 @@ hr {
   .shop_details_description .info_list:last-child {
     margin-bottom: 30px;
   }
+
+  .sec_space_small {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
 }
 /* media screen and (max-width: 767px) - end
 ================================================== */
@@ -17776,8 +17796,7 @@ hr {
     margin-bottom: 10px;
   }
 
-  .product_filter_bar,
-.product_filter_bar .right_area {
+  .product_filter_bar, .product_filter_bar .right_area {
     display: block;
   }
 
@@ -17807,6 +17826,11 @@ hr {
   .shop_offer_carousel2 .content_wrap {
     max-width: 100%;
   }
+
+  .sec_space_small {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 /* media screen and (max-width: 680px) - end
 ================================================== */
@@ -17824,8 +17848,7 @@ hr {
     width: 25%;
   }
 
-  .header_icons_group3 > li > a,
-.header_icons_group3 > li > button {
+  .header_icons_group3 > li > a, .header_icons_group3 > li > button {
     width: 30px;
     height: 30px;
     font-size: 12px;
@@ -17841,8 +17864,7 @@ hr {
     padding: 0 15px;
   }
 
-  .header_4 .header_icons_group > li > a,
-.header_4 .header_icons_group > li > button {
+  .header_4 .header_icons_group > li > a, .header_4 .header_icons_group > li > button {
     font-size: 16px;
   }
 
@@ -18163,9 +18185,9 @@ hr {
 
   .shop_five_col > .col {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-    max-width: 100%;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+    max-width: 50%;
   }
 
   .filter_input_group .bottom_content {
@@ -18378,6 +18400,11 @@ hr {
 
   .vendor_profile .description_wrap p {
     font-size: 16px;
+  }
+
+  .sec_space_small {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 /* media screen and (max-width: 575px) - end
@@ -18833,7 +18860,7 @@ hr {
   }
 
   .breadcrumb_section {
-    padding: 60px 0px;
+    padding: 45px 0px;
   }
 
   .sec_space_xlarge {
@@ -18911,10 +18938,11 @@ hr {
 	height: 100%; /* 100% Full-height */
 	width: 0; /* 0 width - change this with JavaScript */
 	position: fixed; /* Stay in place */
-	z-index: 99999; /* Stay on top */
+	z-index: 99999999; /* Stay on top */
 	top: 0; /* Stay at the top */
 	left: 0;
-	background-image: linear-gradient(115deg, rgba(194,88,133,1), rgba(255,211,211,1), rgba(246,153,126,1));
+	/*background-image: linear-gradient(115deg, rgba(194,88,133,1), rgba(255,211,211,1), rgba(246,153,126,1));*/
+  background-color: #f4f6f7;
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 60px; /* Place content 60px from the top */
 	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */

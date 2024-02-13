@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation";
 
 import { useCartStore } from "../store/cart";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+
 export const NavbarOptions = ({ categories }) => {
   const { cart } = useCartStore(); //debe de ir aqui arriba por ser un hook y evitar errores
 
@@ -41,27 +44,7 @@ export const NavbarOptions = ({ categories }) => {
           id="main_menu_dropdown"
         >
           <ul className="main_menu_list ul_li">
-            {pathname === "/" ? (
-              <li className="active dropdown">
-                <Link
-                  className="nav-link"
-                  href="/"
-                  
-                >
-                  Inicio
-                </Link>
-              </li>
-            ) : (
-              <li className="dropdown">
-                <Link
-                  className="nav-link"
-                  href="/"
-                  
-                >
-                  Inicio
-                </Link>
-              </li>
-            )}
+
 
             {pathname.startsWith("/categories") ? (
               <li className="active dropdown">
@@ -194,14 +177,17 @@ export const NavbarOptions = ({ categories }) => {
 
       <button className="closebtn" onClick={() => {closeNav()}}  >X</button>
 
-      <Link href="/" onClick={() => {closeNav()}} >Inicio</Link>
-      <Link href="#menu_categorias" data-bs-toggle="collapse">Categorias</Link>
-
-      <div id="menu_categorias" className="collapse">
+      <Link href="#menu_categorias" data-bs-toggle="collapse" aria-expanded="true">Categorias</Link>
+      
+      <div id="menu_categorias" className="collapse show">
         {categories && categories.map((item, index) => (
           
             <Link href={`/categories/Todas/${item.nombre}`}  onClick={() => {closeNav()}} key={index} className="submenu" >
-              {item.nombre}
+              <img src={item.imagen} style={{height:"30px",width:"30px", borderRadius:"50px"}}/> {item.nombre}
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                style={{position:"absolute",right:"25px"}}
+              />
             </Link>
           
         ))}

@@ -340,7 +340,7 @@ export const CartForm = () => {
 
             <div className="col col-lg-6">
               <div className="cart_pricing_table text-uppercase">
-                <h3 className="table_title text-center">Cart Total</h3>
+                <h3 className="table_title text-center">Total</h3>
                 <ul className="ul_li_block clearfix">
                   <li>
                     <span>Subtotal</span> <span>$ {cart_subtotal.toFixed(2)}</span>
