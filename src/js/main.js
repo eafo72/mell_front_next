@@ -46,6 +46,11 @@ import $ from 'jquery';
       $('.logo_size').removeClass("logo_position_float")
       $('.logo_size').addClass("logo_position_normal")
 
+      $('.header_icons_group').removeClass("icons_position_float")
+      $('.header_icons_group').addClass("icons_position_normal")
+      
+      
+
     } else {
       $('.header_section').removeClass("sticky")
       $('.logo_size').addClass("logo_m")
@@ -53,6 +58,9 @@ import $ from 'jquery';
 
       $('.logo_size').addClass("logo_position_float")
       $('.logo_size').removeClass("logo_position_normal")
+
+      $('.header_icons_group').addClass("icons_position_float")
+      $('.header_icons_group').removeClass("icons_position_normal")
 
     }
   });

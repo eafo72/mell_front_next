@@ -265,6 +265,7 @@ hr {
 
 .width_desktop {
   max-width: 1560px;
+  min-height:60px;
 }
 
 .width_laptop_lg {
@@ -299,12 +300,12 @@ hr {
 }
 
 .sec_space_large {
-  padding-top: 130px;
+  padding-top: 30px;
   padding-bottom: 130px;
 }
 
 .sec_space_small {
-  padding-top: 70px;
+  padding-top: 30px;
   padding-bottom: 70px;
 }
 
@@ -2318,7 +2319,7 @@ hr {
   display: none;
 }
 .header_1 .header_bottom {
-  padding: 16px 0;
+  /*padding: 16px 0;*/
 }
 .header_1 .header_icons_group {
   margin-left: 145px;
@@ -3809,14 +3810,14 @@ hr {
   display: flex;
   /*min-height: 680px;*/
   position: relative;
-  padding: 50px 0px;
+  padding-top: 150px;
+  padding-bottom: 0px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-top:165px;
 }
 
 .page_title {
@@ -4396,7 +4397,7 @@ hr {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-top: 165px;
+  margin-top: 100px;
 }
 .slider_section .thumbnail_item {
   cursor: pointer;
@@ -14269,12 +14270,12 @@ hr {
 @media screen and (max-width: 1460px) {
   /* space - start */
   .sec_space_large {
-    padding-top: 100px;
+    padding-top: 30px;
     padding-bottom: 100px;
   }
 
   .sec_space_small {
-    padding-top: 70px;
+    padding-top: 30px;
     padding-bottom: 70px;
   }
 
@@ -16941,8 +16942,9 @@ hr {
   }
 
   .breadcrumb_section {
-    padding: 45px 0px;
-    margin-top: 130px;
+    padding-top: 150px;
+    padding-bottom: 0;
+    
   }
 
   .page_title {
@@ -18877,7 +18879,8 @@ hr {
   }
 
   .breadcrumb_section {
-    padding: 45px 0px;
+    padding-top: 150px;
+    padding-bottom: 0px;
   }
 
   .sec_space_xlarge {
@@ -19026,13 +19029,15 @@ hr {
 .logo_position_float{
   position:absolute;
   left:30px;
-  top:120px;
+  top:55px;
 }
 .logo_position_normal{
   position:absolute;
   left:30px;
-  top:30px;
+  top:5px;
 }
+
+
 
 @media screen and (max-width: 991px) {
   .logo_position_float{
@@ -19040,8 +19045,15 @@ hr {
     left:30px;
     top:15px;
   }
+  .icons_position_normal{
+    height: 60px;
+  }
+  .icons_position_float{
+    height: 130px;
+  }
 }  
 
+/*CSS ANIMATIONS */
 
 .fadeInCustom {
         animation: fadein 5s;

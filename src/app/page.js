@@ -97,7 +97,7 @@ const Page = async () => {
             
             <div className="row align-items-center">
               <div className="col ">
-                <div className="section_title" style={{paddingBottom:"40px"}}>
+                <div className="section_title" style={{paddingBottom:"0px"}}>
                   <h2 className="title_text text-pink-light fontPlantagenet" >
                   Lo más nuevo de nuestra colección
                   </h2>
@@ -189,7 +189,7 @@ const Page = async () => {
           </div>
         </section>
 
-        <section className="product_section sec_space_large">
+        <section className="product_section sec_space_large" style={{paddingBottom:"0px"}}>
           <div className="container width_desktop">
             <div className="row align-items-center">
               <div className="col ">
@@ -439,7 +439,7 @@ const Page = async () => {
           <div className="container width_desktop">
             <div className="row align-items-center">
               <div className="col ">
-                <div className="section_title" style={{paddingBottom:"40px"}}>
+                <div className="section_title" style={{paddingBottom:"0px"}}>
                   <h2 className="title_text text-pink-light fontPlantagenet" >
                   Las preferidas de todas
                   </h2>

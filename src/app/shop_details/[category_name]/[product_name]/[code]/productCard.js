@@ -168,7 +168,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
   return (
     <>
     <ToastContainer />
-    <section className="shop_details bg_gray sec_space_small">
+    <section className="shop_details bg_gray sec_space_small" style={{marginTop:"30px"}}>
       <div className="container">
         <div className="row ">
           <div className="col col-lg-7 col-md-8">
@@ -279,7 +279,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
                           <FacebookShareButton
                           url={currentPageUrl}
                           >
-                            <i class="fab fa-facebook-f"></i>
+                            <i className="fab fa-facebook-f"></i>
                             
                           </FacebookShareButton>
                       </li>

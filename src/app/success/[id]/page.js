@@ -29,12 +29,14 @@ const Success = ({ params }) => {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-6">
-                <h2 className="faq_title text-center">
-                  Hemos recibido su pago, gracias por su compra.
-                </h2>
-                <p className="text-center">
-                  Para rastrear su compra utilice la referencia : {params.id}
-                </p>
+                <div style={{padding:"30px 0px"}}>
+                  <h2 className="faq_title text-center">
+                    Hemos recibido su pago, gracias por su compra.
+                  </h2>
+                  <p className="text-center">
+                    Para rastrear su compra utilice la referencia : {params.id}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

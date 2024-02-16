@@ -139,7 +139,7 @@ export const NavbarOptions = ({ categories }) => {
         </div>
       </nav>
 
-      <ul className="header_icons_group ul_li">
+      <ul className="header_icons_group ul_li icons_position_normal">
         {/*
                 <li>
                   <button type="button" className="main_search_btn" data-bs-toggle="collapse" data-bs-target="#main_search_collapse" aria-expanded="false" aria-controls="main_search_collapse">

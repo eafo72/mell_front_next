@@ -53,9 +53,9 @@ const Aviso = async () => {
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-6">
-                
+                <div style={{padding:"30px 0px"}}>
                   {avisoDeP}                
-                
+                </div>
               </div>
             </div>
           </div>

@@ -46,7 +46,11 @@ const Terminos = async () => {
         <section className="faq_section sec_space_small">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-lg-6">{terminos}</div>
+              <div className="col-lg-6">
+                <div style={{padding:"30px 0px"}}>
+                  {terminos}
+                </div>  
+              </div>
             </div>
           </div>
         </section>

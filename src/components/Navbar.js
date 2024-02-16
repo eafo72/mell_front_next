@@ -61,19 +61,18 @@ export async function Navbar() {
             </ul>
           </div>
 
-          <div>
-              <Link className="brand_link" href="/">
+          
+              <Link className="brand_link" href="/" style={{display:"block"}}>
               <Image className="logo_size logo_m logo_position_float" src={logo} alt={logo} />
               </Link>
-          </div>
+          
 
           <div className="header_bottom">
 
+              {/*este div es solo para que deje el espacio del logo*/}
               <div className="brand_logo"></div>
 
-
               <NavbarOptions categories= {categories} />
-
             
           </div>
         </div>
