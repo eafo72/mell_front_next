@@ -43,68 +43,52 @@ export const NavbarOptions = ({ categories }) => {
           className="main_menu_inner collapse navbar-collapse"
           id="main_menu_dropdown"
         >
-          <ul className="main_menu_list ul_li">
 
+          <ul className="main_menu_list ul_li">
 
             {pathname.startsWith("/categories") ? (
               <li className="active dropdown">
-                <Link
-                  href="#"
-                  className="nav-link"
-                  id="categories_submenu"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Categorías
-                </Link>
-                <ul
-                  className="submenu dropdown-menu"
-                  aria-labelledby="categories_submenu"
-                >
-                  {categories &&
-                    categories.map((item, index) => (
-                      <li key={index}>
-                        <Link
-                          href={`/categories/Todas/${item.nombre}`}
-                          
-                        >
-                          {item.nombre}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
+                  <a className="nav-link" href="#" id="categories_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorías
+                  </a>
+                  <div className="megamenu dropdown-menu" aria-labelledby="categories_submenu">
+                    <div className="container">
+                        <ul className="homepage_list ul_li">
+                          {categories && categories.map((item, index) => (
+                            <li key={index}>
+                              <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
+                                <span className="item_image" style={{backgroundColor:"transparent"}}>
+                                  <img src={item.imagen} style={{height:"60px"}} className="img-fluid"/>
+                                </span>
+                                <span className="item_title">{item.nombre}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                    </div>
+                  </div>
               </li>
             ) : (
               <li className="dropdown">
-                <Link
-                  href="#"
-                  className="nav-link"
-                  id="categories_submenu"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Categorías
-                </Link>
-                <ul
-                  className="submenu dropdown-menu"
-                  aria-labelledby="categories_submenu"
-                >
-                  {categories &&
-                    categories.map((item, index) => (
-                      <li key={index}>
-                        <Link
-                          href={`/categories/Todas/${item.nombre
-                            .trim()
-                            .replace(/\s/g, "-")}`}
-                         
-                        >
-                          {item.nombre}
-                        </Link>
-                      </li>
-                    ))}
-                </ul>
+                  <a className="nav-link" href="#" id="categories_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categorías
+                  </a>
+                  <div className="megamenu dropdown-menu" aria-labelledby="categories_submenu">
+                    <div className="container">
+                        <ul className="homepage_list ul_li">
+                          {categories && categories.map((item, index) => (
+                            <li key={index}>
+                              <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
+                                <span className="item_image" style={{backgroundColor:"transparent"}}>
+                                  <img src={item.imagen} style={{height:"60px"}} className="img-fluid"/>
+                                </span>
+                                <span className="item_title">{item.nombre}</span>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                    </div>
+                  </div>
               </li>
             )}
 
@@ -165,7 +149,7 @@ export const NavbarOptions = ({ categories }) => {
                 </li>
                 */}
         <li>
-          <Link className="cart_btn" href="/cart" onClick={() => {closeNav()}}>
+          <Link className="cart_btn" href="/cart" onClick={() => {closeNav()}} style={{marginRight:"20px"}}>
             <i className="far fa-shopping-bag"></i>
             <small className="cart_counter">{cart.length}</small>
           </Link>

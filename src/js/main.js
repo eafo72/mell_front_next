@@ -42,10 +42,18 @@ import $ from 'jquery';
       $('.header_section').addClass("sticky")
       $('.logo_size').addClass("logo_s")
       $('.logo_size').removeClass("logo_m")
+
+      $('.logo_size').removeClass("logo_position_float")
+      $('.logo_size').addClass("logo_position_normal")
+
     } else {
       $('.header_section').removeClass("sticky")
       $('.logo_size').addClass("logo_m")
       $('.logo_size').removeClass("logo_s")
+
+      $('.logo_size').addClass("logo_position_float")
+      $('.logo_size').removeClass("logo_position_normal")
+
     }
   });
   // sticky header - end

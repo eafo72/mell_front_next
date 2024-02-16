@@ -101,15 +101,11 @@ const Shop_details = async ({params}) => {
       <SideMenu></SideMenu>
       */}
 
-      <section
-        className="breadcrumb_section"
-        style={{ backgroundColor:"#e7e8ec" }}
-      >
+      <section className="breadcrumb_section" >
         <div className="container width_tablet">
           <div className="row">
             <div className="col col-lg-6">
               <div className="breadcrumb_content">
-                <h1 className="page_title">Detalle de producto</h1>
                 <ul className="breadcrumb_nav ul_li_center">
                   <li>
                     <Link className="home_btn" href="/">

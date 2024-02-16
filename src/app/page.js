@@ -63,6 +63,7 @@ const Page = async () => {
                         className="big_title text-pink"
                         data-animation="fadeInUp2"
                         data-delay=".4s"
+                        style={{lineHeight:".75"}}
                       >
                         <span style={{ fontFamily: "Margarita" }}>Estilo</span>{" "}
                         <span className="text-brown">a tu alcance</span>
@@ -77,7 +78,7 @@ const Page = async () => {
                         href="/categories/Todas/Vestidos"
                         data-animation="fadeInUp2"
                         data-delay=".8s"
-                        style={{ fontSize: "1.2rem" }}
+                        style={{ fontSize: "1.2rem", marginTop:"25px" }}
                       >
                         Vestidos{" "}
                         <i
@@ -93,8 +94,19 @@ const Page = async () => {
           </div>
         </section>
 
-        <div className="category_section sec_space_large">
+        <div className="category_section sec_space_large"  >
           <div className="container width_desktop">
+            
+            <div className="row align-items-center">
+              <div className="col ">
+                <div className="section_title" style={{paddingBottom:"40px"}}>
+                  <h2 className="title_text text-pink-light fontPlantagenet" >
+                  Lo más nuevo de nuestra colección
+                  </h2>
+                </div>
+              </div>
+            </div>  
+
             <div className="grid category_masonry_1 clearfix">
               <div className="grid-sizer"></div>
 
@@ -421,6 +433,21 @@ const Page = async () => {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+
+        <section className="product_section">
+          <div className="container width_desktop">
+            <div className="row align-items-center">
+              <div className="col ">
+                <div className="section_title" style={{paddingBottom:"40px"}}>
+                  <h2 className="title_text text-pink-light fontPlantagenet" >
+                  Las preferidas de todas
+                  </h2>
+                </div>
+              </div>
+            </div>  
           </div>
         </section>
 

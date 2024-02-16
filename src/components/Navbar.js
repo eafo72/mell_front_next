@@ -61,15 +61,18 @@ export async function Navbar() {
             </ul>
           </div>
 
-          <div className="header_bottom">
-            <div className="brand_logo">
+          <div>
               <Link className="brand_link" href="/">
-              <Image
-                 className="logo_size logo_m" src={logo} alt={logo} />
+              <Image className="logo_size logo_m logo_position_float" src={logo} alt={logo} />
               </Link>
-            </div>
+          </div>
 
-            <NavbarOptions categories= {categories} />
+          <div className="header_bottom">
+
+              <div className="brand_logo"></div>
+
+
+              <NavbarOptions categories= {categories} />
 
             
           </div>

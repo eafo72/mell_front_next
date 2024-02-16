@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 
 import clienteAxios from "../../config/axios";
 
+import Select from "react-select";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -40,6 +42,14 @@ export const CartForm = () => {
   const [viewMPbutton, setViewMPbutton] = useState(false);
   const [viewContinuebutton, setViewContinuebutton] = useState(true);
 
+  const allDeliveryTypes = [
+    {"value":"Directo en Tienda", "label": "Directo en Tienda"},
+    {"value":"Paquetería fuera de Cuernavaca", "label": "Paquetería fuera de Cuernavaca"},
+    {"value":"Envío por Didi dentro de Morelos", "label": "Envío por Didi dentro de Morelos"},
+    {"value":"Entrega directa Jiutepec, Jojutla, Cuernavaca", "label": "Entrega directa Jiutepec, Jojutla, Cuernavaca"},
+  ];
+
+  
   const mostrarMensaje = (mensaje) => {
     toast.error(mensaje, {
       position: "top-right",
@@ -264,6 +274,32 @@ export const CartForm = () => {
     
    };
 
+
+   const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      background: "white",
+      textTransform:"none",
+      paddingLeft:"10px",
+      borderColor: state.isFocused ? "#c25885":"#cccccc",
+    }),
+    singleValue: (base, state) => ({
+      ...base,
+      color: "rgb(15 23 42 / var(--tw-text-opacity))",
+    }),
+    multiValueRemove: (base, state) => ({
+      ...base,
+      color: "red",
+    }),
+    option: (base, state) => {
+      return {
+        ...base,
+        background: state.isFocused ? "#c25885" : "white",
+        color: state.isFocused ? "white" : "grey",
+      };
+    },
+  };
+
   return (
     <>
     <ToastContainer />
@@ -342,16 +378,16 @@ export const CartForm = () => {
               <div className="cart_pricing_table text-uppercase">
                 <h3 className="table_title text-center">Total</h3>
                 <ul className="ul_li_block clearfix">
-                  <li>
+                  <li style={{fontWeight: "800"}}>
                     <span>Subtotal</span> <span>$ {cart_subtotal.toFixed(2)}</span>
                   </li>
-                  <li>
+                  <li style={{fontWeight: "800"}}>
                     <span>Descuento</span> <span>$ {cart_descuento.toFixed(2)}</span>
                   </li>
-                  <li>
+                  <li style={{fontWeight: "800"}}>
                     <span>I.V.A.</span> <span>$ {cart_iva.toFixed(2)}</span>
                   </li>
-                  <li>
+                  <li style={{fontWeight: "800"}}>
                     <span>Total</span> <span>$ {cart_total.toFixed(2)}</span>
                   </li>
 
@@ -360,20 +396,21 @@ export const CartForm = () => {
                   <li>
 
                   {viewContinuebutton === true ?
-                  (<div style={{marginTop:"10px"}}>
+                  (<div className="contact3_wrap" style={{marginTop:"10px",border:"0"}}>
+
+                    <div className="form_item">
 
                     {/*forma entrega*/}
-                    <select id="forma_entrega"
-                      onChange={(e) => setFormaEntrega(e.target.value)}
-                      style={{width:"100%",marginBottom:"8px"}}
-                      >
-                        <option value="" hidden>Seleccione una forma de entrega</option>
-                        <option>Directo en Tienda</option>
-                        <option>Paquetería fuera de Cuernavaca</option>
-                        <option>Envío por Didi dentro de Morelos</option>
-                        <option>Entrega directa Jiutepec, Jojutla, Cuernavaca</option>
-                        
-                      </select>
+                    <Select
+                     styles={customStyles}
+                     placeholder="Seleccione una forma de entrega"
+                     options={allDeliveryTypes}
+                     onChange={setFormaEntrega}
+                     value={formaEntrega}
+                     isSearchable={false}
+                    ></Select>
+
+                   
 
                     {/*Entregar a:*/}
                     <input
@@ -381,7 +418,7 @@ export const CartForm = () => {
                       placeholder="Entregar a:"
                       id="datos_entrega_nombre"
                       type="text"
-                      style={{width:"100%",marginBottom:"8px"}}
+                      style={{width:"100%",marginBottom:"8px",marginTop:"8px"}}
                       />
 
                       {/*Direccion de entrega*/}
@@ -398,7 +435,7 @@ export const CartForm = () => {
                       placeholder="Correo"
                       id="datos_entrega_correo"
                       type="email"
-                      style={{width:"100%",marginBottom:"8px"}}
+                      style={{width:"100%",marginBottom:"8px",marginTop:"8px"}}
                       />
 
                       <input
@@ -409,13 +446,16 @@ export const CartForm = () => {
                       style={{width:"100%"}}
                       />
 
+                    </div>
+
                       <input
                       onChange={checkboxHandler}
                       id="agree"
                       type="checkbox"
                       style={{marginTop:"30px"}}
                       /> 
-                      <label style={{marginLeft:"10px"}} htmlFor="agree"> Acepto los <a href="/terminos" target="_blank" style={{color:"#fb491d"}}>términos y condiciones</a></label>
+                      <label style={{marginLeft:"10px",fontWeight: "800"}} htmlFor="agree"> Acepto los <a href="/terminos" target="_blank" style={{color:"#fb491d"}}>términos y condiciones</a></label>
+                    
 
                   </div>
                   ):(<></>)

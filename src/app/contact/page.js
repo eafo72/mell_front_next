@@ -7,14 +7,11 @@ const Contact = async () => {
     <>
       <main>
         <section
-          className="breadcrumb_section"
-          style={{ backgroundColor: "#f7e6d6" }}
-        >
+          className="breadcrumb_section" >
           <div className="container">
             <div className="row">
               <div className="col col-lg-6">
                 <div className="breadcrumb_content">
-                  <h1 className="page_title">Contacto</h1>
                   <ul className="breadcrumb_nav ul_li_center">
                     <li>
                       <Link className="home_btn" href="/">

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const RelatedProducts = ({ productosRelacionados, codigo }) => {
   return (
-    <section className="popular_product_section sec_space_small">
+    <section className="popular_product_section" style={{paddingTop:"70px", paddingBottom:"70px"}}>
       <div className="container width_tablet">
         <h2 className="title_text">Productos Relacionados</h2>
 
@@ -18,7 +18,7 @@ export const RelatedProducts = ({ productosRelacionados, codigo }) => {
               )
               .map((item, index) => (
                 <div key={index} className="col col-lg-3 col-md-4 col-sm-6">
-                  <div className="shop_layout_2">
+                  <div className="shop_layout_1">
                     <div className="shop_image_wrap">
                       <div className="tab-content">
                         {/*foto 1*/}
@@ -44,7 +44,7 @@ export const RelatedProducts = ({ productosRelacionados, codigo }) => {
                       </div>
                     </div>
                     <div className="shop_content clearfix">
-                      <h3 className="shop_title">
+                      <h3 className="shop_title"> 
                         <Link
                           href={`/shop_details/${item.categoria
                             .trim()

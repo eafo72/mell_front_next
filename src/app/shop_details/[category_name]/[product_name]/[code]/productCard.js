@@ -172,18 +172,20 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       <div className="container">
         <div className="row ">
           <div className="col col-lg-7 col-md-8">
-            <ImageGallery items={images} />
+            <div style={{paddingTop:"20px"}}>
+              <ImageGallery items={images} />
+            </div> 
           </div>
 
           <div className="col col-lg-5 col-md-8">
-            <div className="shop_details_content">
+            <div className="shop_details_content" style={{paddingBottom:"20px"}}>
               {/*
                 <div className="item_badge">Sale</div>
                 */}
               <h2 className="item_subtitle">
                 {producto && producto.categoria}
               </h2>
-              <h3 className="item_title">{producto && producto.nombre}</h3>
+              <h3 className="item_title" style={{fontFamily:"Plantagenet"}}>{producto && producto.nombre}</h3>
               <h4>{producto && producto.marca}</h4>
               <div className="item_price">
                 <span className="sale_price">
@@ -277,7 +279,8 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
                           <FacebookShareButton
                           url={currentPageUrl}
                           >
-                          <FacebookIcon></FacebookIcon>
+                            <i class="fab fa-facebook-f"></i>
+                            
                           </FacebookShareButton>
                       </li>
                     </ul>

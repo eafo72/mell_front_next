@@ -21,16 +21,12 @@ const Faq = async () => {
   return (
     <>
       <ToastContainer />
-      <main>
-        <section
-          className="breadcrumb_section"
-          style={{ backgroundColor: "#d4d8dd" }}
-        >
+      <main style={{minHeight:"70vh"}}>
+        <section className="breadcrumb_section">
           <div className="container">
             <div className="row">
               <div className="col col-lg-6">
                 <div className="breadcrumb_content">
-                  <h1 className="page_title">FAQ</h1>
                   <ul className="breadcrumb_nav ul_li_center">
                     <li>
                       <Link className="home_btn" href="/">
@@ -45,11 +41,11 @@ const Faq = async () => {
           </div>
         </section>
 
-        <section className="faq_section sec_space_small">
+        <section className="faq_section" style={{paddingTop:"70px",paddingBottom:"70px"}}>
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-6">
-                <h2 className="faq_title text-center" style={{marginTop:"50px"}}>Preguntas Frecuentes</h2>
+                <h2 className="faq_title text-center" >Preguntas Frecuentes</h2>
                 <div className="accordion_primary" id="accordion_primary">
                   {faqs &&
                     faqs.map((item, index) => (

@@ -6,15 +6,11 @@ const Success = ({ params }) => {
     <>
       <ToastContainer />
       <main>
-        <section
-          className="breadcrumb_section"
-          style={{ backgroundColor: "#d4d8dd" }}
-        >
+        <section className="breadcrumb_section" >
           <div className="container">
             <div className="row">
               <div className="col col-lg-6">
                 <div className="breadcrumb_content">
-                  <h1 className="page_title">Carrito de Compras</h1>
                   <ul className="breadcrumb_nav ul_li_center">
                     <li>
                       <a className="home_btn" href="/">

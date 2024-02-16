@@ -7,6 +7,14 @@ import Link from 'next/link'
 
 export async function Footer() {
 
+  const shuffle = (array) => { 
+    for (let i = array.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [array[i], array[j]] = [array[j], array[i]]; 
+    } 
+    return array; 
+  }; 
+
   const getCategories = async () => {
     try {
       const res = await clienteAxios.get(`/categoria/obtener`);
@@ -17,7 +25,8 @@ export async function Footer() {
     }
   };
 
-  const categories = await getCategories();
+  const Allcategories = await getCategories();
+  const categories = shuffle(Allcategories); 
 
   return (
     <>
@@ -60,13 +69,18 @@ export async function Footer() {
                   <h3 className="footer_widget_title text-white">Categorías</h3>
                   <ul className="ul_li_block">
                     {categories &&
-                      categories.map((item, index) => (
-                        <li key={index}>
+                      categories.map((item, index) => {
+                      return index < 6 ? (
+                      <li key={index}>
                           <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`}>
                             {item.nombre}
                           </Link>
                         </li>
-                      ))}
+                       )
+                      :
+                      (<></>)
+                      }
+                      )}
                   </ul>
                 </div>
               </div>
@@ -138,9 +152,7 @@ export async function Footer() {
         </div>
         <div className="footer_bottom">
           <div className="container width_desktop">
-            <p className="copyright_text text-center">
-              © Todos los derechos reservados{" "}
-              <a href="index.html">Mell Fashion Boutique</a>
+            <p className="copyright_text text-center">© Todos los derechos reservados Mell Fashion Boutique desarrollado por <a href="https://gomalab.com" target="_blank" style={{color: "#c25885"}}>GomaLab</a>
             </p>
           </div>
         </div>
