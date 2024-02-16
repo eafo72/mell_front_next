@@ -294,8 +294,8 @@ export const CartForm = () => {
     option: (base, state) => {
       return {
         ...base,
-        background: state.isFocused ? "#c25885" : "white",
-        color: state.isFocused ? "white" : "grey",
+        background: state.isSelected ? "#c25885" : state.isFocused ? "#c2588550": "transparent",
+        color: state.isSelected ? "white" : "grey",
       };
     },
   };
@@ -402,6 +402,7 @@ export const CartForm = () => {
 
                     {/*forma entrega*/}
                     <Select
+                     instanceId={'formaEntrega'}
                      styles={customStyles}
                      placeholder="Seleccione una forma de entrega"
                      options={allDeliveryTypes}

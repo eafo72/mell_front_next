@@ -60,9 +60,7 @@ const Page = async () => {
                   <h3 className="small_title" data-animation="fadeInUp2" data-delay=".2s">Para cualquier industria</h3>
                   */}
                       <h4
-                        className="big_title text-pink"
-                        data-animation="fadeInUp2"
-                        data-delay=".4s"
+                        className="big_title text-pink fadeInCustom"
                         style={{lineHeight:".75"}}
                       >
                         <span style={{ fontFamily: "Margarita" }}>Estilo</span>{" "}

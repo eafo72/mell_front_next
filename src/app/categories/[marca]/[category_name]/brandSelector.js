@@ -4,20 +4,24 @@ import { useRouter } from "next/navigation";
 
 import Select from "react-select";
 
-export const BrandSelector = ({ brand_name, category_name, brands }) => {
+export const BrandSelector = ({ brand_name, category_name, allBrands }) => {
   const router = useRouter();
 
-  const handleBrandChange = (e) => {
+  const actualValue = {"value": brand_name, "label": brand_name}
 
-    const brnd = e.target.value;
-
+  const handleBrandChange = (selectedOption) => {
+    const brnd = selectedOption.value;
     router.push(`/categories/${brnd.trim().replace(/\s/g,"-")}/${category_name.trim().replace(/\s/g,"-")}`);
   };
+
 
   const customStyles = {
     control: (base, state) => ({
       ...base,
-      background: "transparent",
+      background: "white",
+      textTransform:"none",
+      paddingLeft:"10px",
+      borderColor: state.isFocused ? "#c25885":"#cccccc",
     }),
     singleValue: (base, state) => ({
       ...base,
@@ -30,20 +34,24 @@ export const BrandSelector = ({ brand_name, category_name, brands }) => {
     option: (base, state) => {
       return {
         ...base,
-        background: "",
-        color: state.isFocused ? "black" : "grey",
+        background: state.isSelected ? "#c25885" : state.isFocused ? "#c2588550": "transparent",
+        color: state.isSelected ? "white" : "grey",
       };
     },
   };
   
   return (
-    <select onChange={(e) => handleBrandChange(e)} value={brand_name}>
-      <option value="" hidden>
-        Seleccione
-      </option>
-      <option>Todas</option>
-      {brands &&
-        brands.map((item) => <option key={item._id}>{item.nombre}</option>)}
-    </select>
+
+    <Select
+    instanceId={'marcas'}
+    styles={customStyles}
+    placeholder="Seleccione"
+    options={allBrands}
+    value={actualValue}
+    onChange={handleBrandChange}
+    isSearchable={true}
+   ></Select>
+
+    
   );
 };

@@ -4,21 +4,24 @@ import { useRouter } from "next/navigation";
 
 import Select from "react-select";
 
-export const CategorySelector = ({ brand_name, category_name, categories }) => {
+export const CategorySelector = ({ brand_name, category_name, allCategories }) => {
   const router = useRouter();
 
-  const handleCategoryChange = (e) => {
+  const actualValue = {"value": category_name, "label": category_name}
 
-    const cat = e.target.value
-    
-
+  const handleCategoryChange = (selectedOption) => {
+    const cat = selectedOption.value
     router.push(`/categories/${brand_name.trim().replace(/\s/g,"-")}/${cat.trim().replace(/\s/g,"-")}`);
   };
 
+  
   const customStyles = {
     control: (base, state) => ({
       ...base,
-      background: "transparent",
+      background: "white",
+      textTransform:"none",
+      paddingLeft:"10px",
+      borderColor: state.isFocused ? "#c25885":"#cccccc",
     }),
     singleValue: (base, state) => ({
       ...base,
@@ -31,19 +34,24 @@ export const CategorySelector = ({ brand_name, category_name, categories }) => {
     option: (base, state) => {
       return {
         ...base,
-        background: "",
-        color: state.isFocused ? "black" : "grey",
+        background: state.isSelected ? "#c25885" : state.isFocused ? "#c2588550": "transparent",
+        color: state.isSelected ? "white" : "grey",
       };
     },
   };
 
   return (
     
-    <select onChange={(e) => handleCategoryChange(e)} value={category_name}>
-      {categories &&
-        categories.map((item, index) => (
-          <option key={item._id}>{item.nombre}</option>
-        ))}
-    </select>
+    <Select
+      instanceId={'categorias'}
+      styles={customStyles}
+      placeholder="Seleccione"
+      options={allCategories}
+      value={actualValue}
+      onChange={handleCategoryChange}
+      isSearchable={true}
+    ></Select>
+
+    
   );
 };

@@ -40,7 +40,19 @@ const AllCategories = async ({ params }) => {
   };
 
   const categories = await getCategories();
+  const allCategories = [];
+  for(let i = 0; i < categories.length; i++){
+    allCategories.push({"value": categories[i]['nombre'], "label": categories[i]['nombre']});
+  }
+
   const brands = await getBrands();
+  const allBrands = [];
+  allBrands.push({"value": "Todas", "label": "Todas"});
+  for(let i = 0; i < brands.length; i++){
+    allBrands.push({"value": brands[i]['nombre'], "label": brands[i]['nombre']});
+  }
+
+
   const products = await getProducts();
 
   return (
@@ -78,7 +90,7 @@ const AllCategories = async ({ params }) => {
                       <CategorySelector
                         brand_name={params.marca.replace("-", " ")}
                         category_name={params.category_name.replace("-", " ")}
-                        categories={categories}
+                        allCategories={allCategories}
                       />
                     </div>
                   </li>
@@ -89,7 +101,7 @@ const AllCategories = async ({ params }) => {
                       <BrandSelector
                         brand_name={params.marca.replace("-", " ")}
                         category_name={params.category_name.replace("-", " ")}
-                        brands={brands}
+                        allBrands={allBrands}
                       />
                     </div>
                   </li>
