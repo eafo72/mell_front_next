@@ -56,12 +56,12 @@ export const NavbarOptions = ({ categories }) => {
                         <ul className="homepage_list ul_li">
                           {categories && categories.map((item, index) => (
                             <li key={index}>
-                              <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
+                              <a href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
                                 <span className="item_image" style={{backgroundColor:"transparent"}}>
                                   <img src={item.imagen} style={{height:"60px"}} className="img-fluid"/>
                                 </span>
                                 <span className="item_title">{item.nombre}</span>
-                              </Link>
+                              </a>
                             </li>
                           ))}
                         </ul>
@@ -78,12 +78,12 @@ export const NavbarOptions = ({ categories }) => {
                         <ul className="homepage_list ul_li">
                           {categories && categories.map((item, index) => (
                             <li key={index}>
-                              <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
+                              <a href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
                                 <span className="item_image" style={{backgroundColor:"transparent"}}>
                                   <img src={item.imagen} style={{height:"60px"}} className="img-fluid"/>
                                 </span>
                                 <span className="item_title">{item.nombre}</span>
-                              </Link>
+                              </a>
                             </li>
                           ))}
                         </ul>

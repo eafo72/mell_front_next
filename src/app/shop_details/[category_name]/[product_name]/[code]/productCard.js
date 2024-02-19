@@ -146,7 +146,16 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
   const customStyles = {
     control: (base, state) => ({
       ...base,
-      background: "transparent",
+      background: "white",
+      textTransform:"none",
+      paddingLeft:"10px",
+      borderColor: state.isFocused ? "#c25885":"#cccccc",
+      boxShadow: "0",
+      "&:hover": {
+        ...base,
+        boxShadow: "0",
+        borderColor: "#c25885 !important",
+      }
     }),
     singleValue: (base, state) => ({
       ...base,
@@ -159,8 +168,8 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
     option: (base, state) => {
       return {
         ...base,
-        background: "",
-        color: state.isFocused ? "black" : "grey",
+        background: state.isSelected ? "#c25885" : state.isFocused ? "#c2588550": "transparent",
+        color: state.isSelected ? "white" : "grey",
       };
     },
   };

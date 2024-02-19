@@ -22,6 +22,12 @@ export const BrandSelector = ({ brand_name, category_name, allBrands }) => {
       textTransform:"none",
       paddingLeft:"10px",
       borderColor: state.isFocused ? "#c25885":"#cccccc",
+      boxShadow: "0",
+      "&:hover": {
+        ...base,
+        boxShadow: "0",
+        borderColor: "#c25885 !important",
+      }
     }),
     singleValue: (base, state) => ({
       ...base,
