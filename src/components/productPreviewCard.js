@@ -36,7 +36,7 @@ export const ProductPreviewCard = ({ item }) => {
     "https://mell-front-next.vercel.app/shop_details/" +
     item.categoria +
     "/" +
-    item.nombre +
+    item.nombre.trim().replace(/\s/g, "-") +
     "/" +
     item.codigo;
 

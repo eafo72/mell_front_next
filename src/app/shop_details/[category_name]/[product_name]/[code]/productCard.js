@@ -42,7 +42,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
     "https://mell-front-next.vercel.app/shop_details/" +
     producto.categoria +
     "/" +
-    producto.nombre +
+    producto.nombre.trim().replace(/\s/g, "-") +
     "/" +
     producto.codigo;
 
