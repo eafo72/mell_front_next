@@ -39,7 +39,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
   }
 
   const currentPageUrl =
-    "https://mellfashionboutique.com/shop_details/" +
+    "https://mell-front-next.vercel.app/shop_details/" +
     producto.categoria +
     "/" +
     producto.nombre +
