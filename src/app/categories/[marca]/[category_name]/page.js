@@ -2,11 +2,10 @@ import Link from "next/link";
 
 import clienteAxios from "../../../../config/axios";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { CategorySelector } from "./categorySelector";
 import { BrandSelector } from "./brandSelector";
+import {ProductPreviewCard} from "../../../../components/productPreviewCard"
 
 const AllCategories = async ({ params }) => {
   const getCategories = async () => {
@@ -57,7 +56,6 @@ const AllCategories = async ({ params }) => {
 
   return (
     <>
-      <ToastContainer />
       <main>
         <section
           className="breadcrumb_section" >
@@ -188,61 +186,9 @@ const AllCategories = async ({ params }) => {
                             )
                             .map((item) => (
                               <div key={item._id} className="col">
-                                <div className="shop_layout_1">
-                                  <div className="shop_image_wrap">
-                                    <div className="tab-content">
-                                      {/*foto 1*/}
-                                      <div
-                                        className="tab-pane fade show active"
-                                        id=""
-                                        role="tabpanel"
-                                      >
-                                        <Link
-                                          className="shop_image"
-                                          href={`/shop_details/${item.categoria
-                                            .trim()
-                                            .replace(/\s/g, "-")}/${item.nombre
-                                            .trim()
-                                            .replace(/\s/g, "-")}/${
-                                            item.codigo
-                                          }`}
-                                        >
-                                          <img
-                                            src={`${item.foto_principal}`}
-                                            alt={`${item.foto_principal}`}
-                                            className="img-fluid"
-                                          />
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  {/*info producto*/}
-                                  <div className="shop_content">
-                                    <h3 className="shop_title">
-                                      <Link
-                                        href={`/shop_details/${item.categoria
-                                          .trim()
-                                          .replace(/\s/g, "-")}/${item.nombre
-                                          .trim()
-                                          .replace(/\s/g, "-")}/${item.codigo}`}
-                                      >
-                                        {item.nombre}
-                                      </Link>
-                                    </h3>
-                                    <div className="shop_price">
-                                      <span className="sale_price">
-                                        $ {item.precio}
-                                      </span>
-                                      {/*precio anterior
-                                      <del>$120.00</del>
-                                    */}
-                                    </div>
-                                    <ul className="shop_category ul_li">
-                                      <li>{item.marca}</li>
-                                    </ul>
-                                  </div>
-                                </div>
+                              
+                                <ProductPreviewCard item={item}/>
+                          
                               </div>
                             ))}
                         {/*fin producto*/}
@@ -270,58 +216,7 @@ const AllCategories = async ({ params }) => {
                             )
                             .map((item) => (
                               <div key={item._id} className="col">
-                                <div className="shop_layout_1">
-                                  <div className="shop_image_wrap">
-                                    <div className="tab-content">
-                                      {/*foto 1*/}
-                                      <div
-                                        className="tab-pane fade show active"
-                                        id=""
-                                        role="tabpanel"
-                                      >
-                                        <Link
-                                          className="shop_image"
-                                          href={`/shop_details/${item.categoria
-                                            .trim()
-                                            .replace(/\s/g, "-")}/${item.nombre
-                                            .trim()
-                                            .replace(/\s/g, "-")}/${
-                                            item.codigo
-                                          }`}
-                                        >
-                                          <img
-                                            src={`${item.foto_principal}`}
-                                            alt={`${item.foto_principal}`}
-                                            className="img-fluid"
-                                          />
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  {/*info producto*/}
-                                  <div className="shop_content">
-                                    <h3 className="shop_title">
-                                      <Link
-                                        href={`/shop_details/${item.categoria
-                                          .trim()
-                                          .replace(/\s/g, "-")}/${item.nombre
-                                          .trim()
-                                          .replace(/\s/g, "-")}/${item.codigo}`}
-                                      >
-                                        {item.nombre}
-                                      </Link>
-                                    </h3>
-                                    <div className="shop_price">
-                                      <span className="sale_price">
-                                        $ {item.precio}
-                                      </span>
-                                    </div>
-                                    <ul className="shop_category ul_li">
-                                      <li>{item.marca}</li>
-                                    </ul>
-                                  </div>
-                                </div>
+                                <ProductPreviewCard item={item}/>
                               </div>
                             ))}
                         {/*fin producto*/}

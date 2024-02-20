@@ -2,9 +2,6 @@ import Link from "next/link";
 
 import clienteAxios from "../../config/axios";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 const Terminos = async () => {
   const getTerminos = async () => {
     try {
@@ -22,7 +19,6 @@ const Terminos = async () => {
 
   return (
     <>
-      <ToastContainer />
       <main>
         <section className="breadcrumb_section" >
           <div className="container">

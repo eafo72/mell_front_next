@@ -1,10 +1,8 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 
 const Success = ({ params }) => {
   return (
     <>
-      <ToastContainer />
       <main>
         <section className="breadcrumb_section" >
           <div className="container">

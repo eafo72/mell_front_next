@@ -8,8 +8,7 @@ import clienteAxios from "../../config/axios";
 
 import Select from "react-select";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'sonner';
 
 import { useCartStore } from '../../store/cart';
 
@@ -51,29 +50,11 @@ export const CartForm = () => {
 
   
   const mostrarMensaje = (mensaje) => {
-    toast.error(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.error(mensaje);
   };
 
   const mostrarAviso = (mensaje) => {
-    toast.success(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success(mensaje);
   };
 
   const mostrarMPbutton = () => {
@@ -308,7 +289,6 @@ export const CartForm = () => {
 
   return (
     <>
-    <ToastContainer />
     <section className="cart_section sec_space_large">
         <div className="container">
           <div className="cart_table_2">

@@ -4,8 +4,7 @@ import { useState } from "react";
 
 import clienteAxios from "../../config/axios";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from 'sonner';
 
 export const ContactForm = () => {
   const [nombre, setNombre] = useState();
@@ -14,29 +13,11 @@ export const ContactForm = () => {
   const [mensaje, setMensaje] = useState();
 
   const mostrarMensaje = (mensaje) => {
-    toast.error(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.error(mensaje);
   };
 
   const mostrarAviso = (mensaje) => {
-    toast.success(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success(mensaje);
   };
 
   async function goSendMail(event) {
@@ -85,7 +66,6 @@ export const ContactForm = () => {
 
   return (
     <>
-      <ToastContainer />
       <form onSubmit={(e) => goSendMail(e)}>
         <h2>Contacto</h2>
         <div className="form_item">

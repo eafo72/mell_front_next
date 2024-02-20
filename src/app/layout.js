@@ -10,6 +10,8 @@ import "../css/nice-select.css";
 import "../css/style.css";
 import "../css/image-gallery.css";
 
+import { Toaster, toast } from 'sonner';
+
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { BackToTopButton } from "../components/BackToTopButton";
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
         <ImportJSFiles />
         <BackToTopButton />
         <Navbar/>
+        <Toaster richColors position="top-right"/>
         {children}
         <Footer /> 
       </body>

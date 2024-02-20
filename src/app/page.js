@@ -4,6 +4,8 @@ import Link from 'next/link'
 
 import {BtnCategoria} from "./btnCategoria"
 
+import {ProductPreviewCard} from "../components/productPreviewCard"
+
 const getCategories = async () => {
   try {
     const res = await clienteAxios.get(`/categoria/obtener`);
@@ -74,7 +76,7 @@ const Page = async () => {
                   */}
 
 
-                    <BtnCategoria />
+                    <BtnCategoria categories={categories}/>
                  
 
 
@@ -272,48 +274,11 @@ const Page = async () => {
                       )
                       .map((item, index) => {
                         return index < 8 ? (
-                          <div
-                            key={item._id}
-                            className="col-lg-3 col-md-4 col-sm-6 col-6"
-                          >
-                            <div className="shop_layout_1">
-                              <div className="shop_image_wrap">
-                                <div className="tab-content">
-                                  {/*foto 1*/}
-                                  <div
-                                    className="tab-pane fade show active"
-                                    id=""
-                                    role="tabpanel"
-                                  >
-                                    <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
-                                    >
-                                      <img
-                                        src={`${item.foto_principal}`}
-                                        alt={`${item.foto_principal}`}
-                                        className="img-fluid"
-                                      />
-                                    </Link>
-                                  </div>
-                                </div>
-                              </div>
 
-                              {/*info producto*/}
-                              <div className="shop_content">
-                                <h3 className="shop_title">
-                                 <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
-                                 >{item.nombre}</Link>
-                                </h3>
-                                <div className="shop_price">
-                                  <span className="sale_price">
-                                    $ {item.precio}
-                                  </span>
-                                </div>
-                                <ul className="shop_category ul_li">
-                                  <li>{item.marca}</li>
-                                </ul>
-                              </div>
-                            </div>
+                          <div key={item._id} className="col-lg-3 col-md-4 col-sm-6 col-6">
+                            <ProductPreviewCard item={item}/>
                           </div>
+
                         ) : (
                           <></>
                         );
@@ -347,47 +312,8 @@ const Page = async () => {
                             )
                             .map((item, index) => {
                               return index < 8 ? (
-                                <div
-                                  key={item._id}
-                                  className="col-lg-3 col-md-4 col-sm-6 col-6"
-                                >
-                                  <div className="shop_layout_1">
-                                    <div className="shop_image_wrap">
-                                      <div className="tab-content">
-                                        {/*foto 1*/}
-                                        <div
-                                          className="tab-pane fade show active"
-                                          id=""
-                                          role="tabpanel"
-                                        >
-                                          <Link className="shop_image" href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
-                                          >
-                                            <img
-                                              src={`${item.foto_principal}`}
-                                              alt={`${item.foto_principal}`}
-                                              className="img-fluid"
-                                            />
-                                          </Link>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    {/*info producto*/}
-                                    <div className="shop_content">
-                                      <h3 className="shop_title">
-                                        <Link href={`/shop_details/${item.categoria.trim().replace(/\s/g,"-")}/${item.nombre.trim().replace(/\s/g,"-")}/${item.codigo}`}
-                                        >{item.nombre}</Link> 
-                                      </h3>
-                                      <div className="shop_price">
-                                        <span className="sale_price">
-                                          $ {item.precio}
-                                        </span>
-                                      </div>
-                                      <ul className="shop_category ul_li">
-                                        <li>{item.marca}</li>
-                                      </ul>
-                                    </div>
-                                  </div>
+                                <div key={item._id} className="col-lg-3 col-md-4 col-sm-6 col-6">
+                                  <ProductPreviewCard item={item}/>
                                 </div>
                               ) : (
                                 <></>

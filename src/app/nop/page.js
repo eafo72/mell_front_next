@@ -2,9 +2,6 @@ import Link from 'next/link'
 
 import clienteAxios from "../../config/axios";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 const Aviso = async () => {
  
 
@@ -23,9 +20,8 @@ const Aviso = async () => {
   const avisoDeP = await getAviso();
 
   return (
-    
+   
     <>
-    <ToastContainer />
     <main>
       <section className="breadcrumb_section" >
         <div className="container">

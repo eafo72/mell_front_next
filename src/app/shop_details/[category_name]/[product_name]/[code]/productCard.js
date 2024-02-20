@@ -10,8 +10,7 @@ import Select from "react-select";
 
 import { useCartStore } from '../../../../../store/cart';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'sonner';
 
 import ImageGallery from "react-image-gallery";
 
@@ -39,36 +38,24 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       );
   }
 
-  const currentPageUrl = window.location.href;  
+  const currentPageUrl =
+    "https://mellfashionboutique.com/shop_details/" +
+    producto.categoria +
+    "/" +
+    producto.nombre +
+    "/" +
+    producto.codigo;
 
   const handleColorChange = (codigo, label) => {
     setColor({ value: codigo, label: label });
   };
 
   const mostrarMensaje = (mensaje) => {
-    toast.error(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.error(mensaje);
   };
 
   const mostrarAviso = (mensaje) => {
-    toast.success(mensaje, {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: false,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success(mensaje);
   };
 
   const addToCart = (event) => {
@@ -176,7 +163,6 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
 
   return (
     <>
-    <ToastContainer />
     <section className="shop_details bg_gray sec_space_small" style={{marginTop:"30px"}}>
       <div className="container">
         <div className="row ">

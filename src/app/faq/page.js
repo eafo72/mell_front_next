@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import clienteAxios from "../../config/axios";
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Faq = async () => {
   const getFaqs = async () => {
@@ -20,7 +18,6 @@ const Faq = async () => {
 
   return (
     <>
-      <ToastContainer />
       <main style={{minHeight:"70vh"}}>
         <section className="breadcrumb_section">
           <div className="container">

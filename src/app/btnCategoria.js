@@ -6,7 +6,7 @@ import {useState} from "react"
 
 import useInterval from 'use-interval'
 
-export const BtnCategoria = () => {
+export const BtnCategoria = ({categories}) => {
 
     const [activeCategory, setActiveCategory] = useState("Vestidos");
 
@@ -16,23 +16,23 @@ export const BtnCategoria = () => {
     
 
 
-    const categories =  [
-        {"ruta":"/categories/Todas/Vestidos", "nombre":"Vestidos"},
-        {"ruta":"/categories/Todas/Blusas", "nombre":"Blusas"},
-    ]
+    const categoryRoutes =  []
+    for (let i = 0; i < categories.length; i++) {
+      categoryRoutes.push({"ruta":"/categories/Todas/"+categories[i]['nombre'], "nombre":categories[i]['nombre']})
+    }
+
 
     const changeCategory = () =>{
-        if(activeCategoryIndex == 0){
-            setActiveCategoryIndex(1);
-            setActiveRoute(categories[1]['ruta'])
-            setActiveCategory(categories[1]['nombre'])
-        }else{
-            setActiveCategoryIndex(0);
-            setActiveRoute(categories[0]['ruta'])
-            setActiveCategory(categories[0]['nombre'])
-
-        }
-
+       if(activeCategoryIndex < (categoryRoutes.length) - 1){
+        setActiveCategoryIndex(activeCategoryIndex + 1);
+        setActiveRoute(categoryRoutes[activeCategoryIndex + 1]['ruta'])
+        setActiveCategory(categoryRoutes[activeCategoryIndex + 1]['nombre'])
+       }else{
+        setActiveCategoryIndex(0);
+        setActiveRoute(categoryRoutes[0]['ruta'])
+        setActiveCategory(categoryRoutes[0]['nombre'])
+       }
+        
     }
 
     useInterval(() => {
@@ -43,7 +43,6 @@ export const BtnCategoria = () => {
 
   return (
     <Link
-      key={activeCategory}        
       className="btn btn_primary btn_rounded fadeInUp"
       href={activeRoute}
       style={{ fontSize: "1.2rem", marginTop: "25px" }}
