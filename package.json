@@ -25,6 +25,7 @@
     "react-select": "^5.8.0",
     "react-share": "^5.0.3",
     "react-toastify": "^10.0.4",
+    "use-interval": "^1.4.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import clienteAxios from "../config/axios";
 
 import Link from 'next/link'
 
+import {BtnCategoria} from "./btnCategoria"
 
 const getCategories = async () => {
   try {
@@ -71,19 +72,13 @@ const Page = async () => {
                     Para cualquier industria y en cualquier cantidad.
                   </p>
                   */}
-                      <Link
-                        className="btn btn_primary btn_rounded"
-                        href="/categories/Todas/Vestidos"
-                        data-animation="fadeInUp2"
-                        data-delay=".8s"
-                        style={{ fontSize: "1.2rem", marginTop:"25px" }}
-                      >
-                        Vestidos{" "}
-                        <i
-                          className="fas fa-angle-right"
-                          style={{ marginLeft: "20px" }}
-                        ></i>
-                      </Link>
+
+
+                    <BtnCategoria />
+                 
+
+
+
                     </div>
                   </div>
                 </div>
