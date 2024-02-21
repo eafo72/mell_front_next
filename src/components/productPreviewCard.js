@@ -14,7 +14,7 @@ import { useCartStore } from "../store/cart";
 
 import { FacebookShareButton, FacebookIcon } from "react-share";
 
-import { toast } from 'sonner';
+import { toast } from "sonner";
 
 export const ProductPreviewCard = ({ item }) => {
   
@@ -59,7 +59,7 @@ export const ProductPreviewCard = ({ item }) => {
       console.log(error);
     }
   };
- */ 
+ */
 
   const mostrarMensaje = (mensaje) => {
     toast.error(mensaje);
@@ -69,10 +69,7 @@ export const ProductPreviewCard = ({ item }) => {
     toast.success(mensaje);
   };
 
-  
- 
   const addToCart = async (event) => {
-
     event.preventDefault();
 
     let onCart = 0;
@@ -132,7 +129,7 @@ export const ProductPreviewCard = ({ item }) => {
 
         document.body.style.overflow = "unset";
         document.body.style.pointerEvents = "auto";
-        
+
         setQuickViewModal(false);
         mostrarAviso("Producto Agregado");
         setContinueModal(true);
@@ -205,12 +202,15 @@ export const ProductPreviewCard = ({ item }) => {
 
   return (
     <>
-      
       <div className="shop_layout_1">
         <div className="shop_image_wrap">
           <div className="tab-content">
             {/*foto 1*/}
-            <div className="tab-pane fade show active" id="" role="tabpanel">
+            <div
+              className="tab-pane fade show active"
+              id={item.codigo}
+              role="tabpanel"
+            >
               <Link
                 className="shop_image"
                 href={`/shop_details/${item.categoria
@@ -226,6 +226,30 @@ export const ProductPreviewCard = ({ item }) => {
                 />
               </Link>
             </div>
+
+            {item.fotos_carrusel.map((item2, index) => (
+              <div
+                key={index}
+                className="tab-pane fade"
+                id={item.codigo + index}
+                role="tabpanel"
+              >
+                <Link
+                  className="shop_image"
+                  href={`/shop_details/${item.categoria
+                    .trim()
+                    .replace(/\s/g, "-")}/${item.nombre
+                    .trim()
+                    .replace(/\s/g, "-")}/${item.codigo}`}
+                >
+                  <img
+                    src={`${item2.image}`}
+                    alt={`${item2.image}`}
+                    className="img-fluid"
+                  />
+                </Link>
+              </div>
+            ))}
           </div>
 
           {/*hover links*/}
@@ -242,6 +266,44 @@ export const ProductPreviewCard = ({ item }) => {
             </li>
           </ul>
         </div>
+
+        {/*tabs buttons*/}
+        <ul className="nav child_image" role="tablist">
+          <li role="presentation">
+            <button
+              className="active"
+              data-bs-toggle="tab"
+              data-bs-target={"#" + item.codigo}
+              type="button"
+              role="tab"
+              aria-selected="true"
+            >
+              <img
+                src={`${item.foto_principal}`}
+                alt={`${item.foto_principal}`}
+                className="img-fluid"
+              />
+            </button>
+          </li>
+          {item.fotos_carrusel.map((item2, index) => (
+            <li key={index} role="presentation">
+              <button
+                data-bs-toggle="tab"
+                data-bs-target={"#" + item.codigo + index}
+                type="button"
+                role="tab"
+                aria-selected="false"
+              >
+                <img
+                  src={`${item2.image}`}
+                  alt={`${item2.image}`}
+                  className="img-fluid"
+                />
+              </button>
+            </li>
+          ))}
+          ;
+        </ul>
 
         {/*info producto*/}
         <div className="shop_content">
