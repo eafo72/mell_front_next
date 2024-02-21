@@ -40,7 +40,8 @@ const seoData = await getSeo();
 export const metadata = {
   title: seoData.title,
   description: seoData.description,
-  keywords: seoData.words
+  keywords: seoData.words,
+  author: "Goma Lab" 
 };
 
 export default function RootLayout({ children }) {
