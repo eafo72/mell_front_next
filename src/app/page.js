@@ -57,7 +57,7 @@ const Page = async () => {
             <div className="slider_item">
               <div className="container width_desktop">
                 <div className="row justify-content-end">
-                  <div className="col col-lg-5 col-md-6 col-sm-8">
+                  <div className="col-8 col-lg-5 col-md-6 col-sm-8">
                     <div className="slider_content text-white">
                       {/*
                   <h3 className="small_title" data-animation="fadeInUp2" data-delay=".2s">Para cualquier industria</h3>
@@ -161,7 +161,7 @@ const Page = async () => {
           </div>
         </div>
 
-        <section className="fullwidth_deals_1">
+        <section className="fullwidth_deals_1" style={{backgroundAttachment:"fixed"}}>
           <div className="container width_desktop">
             <div className="row justify-content-end">
               <div className="col col-md-6 col-sm-8">
@@ -172,7 +172,7 @@ const Page = async () => {
                   <h3 className="text-pink text-uppercase">
                     OBTÉN EL<span>10%</span>
                   </h3>
-                  <p>En tu primera compra</p>
+                  <p>Por tiempo limitado</p>
                   <a
                     data-bs-toggle="modal"
                     href="#cod_desc"

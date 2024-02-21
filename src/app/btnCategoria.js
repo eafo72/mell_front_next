@@ -43,7 +43,8 @@ export const BtnCategoria = ({categories}) => {
 
   return (
     <Link
-      className="btn btn_primary btn_rounded fadeInUp"
+      key={activeRoute}
+      className="btn btn_primary btn_rounded fadeInRight"
       href={activeRoute}
       style={{ fontSize: "1.2rem", marginTop: "25px" }}
     >

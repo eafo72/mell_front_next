@@ -226,8 +226,10 @@ export const ProductPreviewCard = ({ item }) => {
                 />
               </Link>
             </div>
-
-            {item.fotos_carrusel.map((item2, index) => (
+            {/*fotos carrusel*/}        
+            {item.fotos_carrusel.map((item2, index) => {
+              return index < 4 ? 
+            (
               <div
                 key={index}
                 className="tab-pane fade"
@@ -249,7 +251,8 @@ export const ProductPreviewCard = ({ item }) => {
                   />
                 </Link>
               </div>
-            ))}
+            ):(<></>)
+            })}
           </div>
 
           {/*hover links*/}
@@ -285,7 +288,9 @@ export const ProductPreviewCard = ({ item }) => {
               />
             </button>
           </li>
-          {item.fotos_carrusel.map((item2, index) => (
+          {item.fotos_carrusel.map((item2, index) => {
+            return index < 4 ? 
+          (
             <li key={index} role="presentation">
               <button
                 data-bs-toggle="tab"
@@ -301,8 +306,9 @@ export const ProductPreviewCard = ({ item }) => {
                 />
               </button>
             </li>
-          ))}
-          ;
+          ):(<></>)
+          })}
+          
         </ul>
 
         {/*info producto*/}

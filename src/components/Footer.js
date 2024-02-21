@@ -72,7 +72,7 @@ export async function Footer() {
                       categories.map((item, index) => {
                       return index < 6 ? (
                       <li key={index}>
-                          <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`}>
+                          <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g,"-")}`} style={{textDecoration:"none"}}>
                             {item.nombre}
                           </Link>
                         </li>

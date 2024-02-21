@@ -16648,7 +16648,7 @@ hr {
   .slider_section .slider_item {
     min-height: auto;
     padding: 100px 0 200px;
-    margin-top: 130px;
+    margin-top: 100px;
   }
 
   .main_slider_5 .slider_nav {
@@ -19040,6 +19040,11 @@ hr {
 
 
 @media screen and (max-width: 991px) {
+  .logo_m {
+    height:70px !important;
+    width: 70px;
+  }
+
   .logo_position_float{
     position:absolute;
     left:30px;
@@ -19049,17 +19054,17 @@ hr {
     height: 60px;
   }
   .icons_position_float{
-    height: 130px;
+    height: 100px;
   }
 }  
 
 /*CSS ANIMATIONS */
 
 .fadeInCustom {
-        animation: fadein 5s;
-    -moz-animation: fadein 5s; /* Firefox */
-    -webkit-animation: fadein 5s; /* Safari and Chrome */
-    -o-animation: fadein 5s; /* Opera */
+        animation: fadein 7s;
+    -moz-animation: fadein 7s; /* Firefox */
+    -webkit-animation: fadein 7s; /* Safari and Chrome */
+    -o-animation: fadein 7s; /* Opera */
 }
 @keyframes fadein {
     from {
@@ -19098,8 +19103,27 @@ hr {
 
 .fadeInUp{
   animation:fadeInUp 1s ease backwards;
+  -moz-animation: fadeInUp 1s; /* Firefox */
+  -webkit-animation: fadeInUp 1s; /* Safari and Chrome */
+  -o-animation: fadeInUp 1s; /* Opera */
 }
 @keyframes fadeInUp{
   0%{transform:translate(0px, 100px); opacity: 0;}
   100%{transform:translate(0px, 0); opacity: 1;}
+}
+
+.fadeInRight{
+  animation:fadeInRight .7s ease backwards;
+  -moz-animation: fadeInRight .7s; /* Firefox */
+  -webkit-animation: fadeInRight .7s; /* Safari and Chrome */
+  -o-animation: fadeInRight .7s; /* Opera */
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+  }
 }

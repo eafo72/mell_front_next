@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 import Link from "next/link";
 
 import { usePathname } from "next/navigation";
@@ -26,8 +28,8 @@ export const NavbarOptions = ({ categories }) => {
   
   return (
     <>
-    <div className="menu_wrap">
-      <nav className="main_menu navbar navbar-expand-lg">
+    <div className="menu_wrap" key={pathname}>
+        <nav className="main_menu navbar navbar-expand-lg">
         <button
           id="btn_hamburger"
           onClick={() => {openNav()}} 
@@ -39,7 +41,14 @@ export const NavbarOptions = ({ categories }) => {
           </span>
         </button>
 
-        <div
+        <motion.div
+        initial={{y:-20, opacity:0}}
+        animate={{y:0, opacity:1}}
+        
+        transition={{
+          ease: "easeInOut",
+          duration: 0.75
+        }}       
           className="main_menu_inner collapse navbar-collapse"
           id="main_menu_dropdown"
         >
@@ -136,7 +145,7 @@ export const NavbarOptions = ({ categories }) => {
               </li>
             )}
           </ul>
-        </div>
+        </motion.div>
       </nav>
 
       <ul className="header_icons_group ul_li icons_position_normal">
