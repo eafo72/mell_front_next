@@ -16,8 +16,6 @@ import ImageGallery from "react-image-gallery";
 
 import { FacebookShareButton, FacebookIcon } from "react-share";
 
-import { host } from "../../../../../config/constants";
-
 export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) => {
 
   const addCartItem = useCartStore((state) => state.add_cart_item)
@@ -41,7 +39,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
   }
 
   const currentPageUrl =
-    host + "/shop_details/" +
+    "https://mell-front-next.vercel.app/shop_details/" +
     producto.categoria +
     "/" +
     producto.nombre.trim().replace(/\s/g, "-") +

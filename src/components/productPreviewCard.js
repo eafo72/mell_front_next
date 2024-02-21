@@ -16,8 +16,6 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 
 import { toast } from 'sonner';
 
-import { host } from "../config/constants";
-
 export const ProductPreviewCard = ({ item }) => {
   
   const addCartItem = useCartStore((state) => state.add_cart_item);
@@ -35,7 +33,7 @@ export const ProductPreviewCard = ({ item }) => {
   const [cantidad, setCantidad] = useState(1);
 
   const currentPageUrl =
-    host +"/shop_details/" +
+    "https://mell-front-next.vercel.app/shop_details/" +
     item.categoria +
     "/" +
     item.nombre.trim().replace(/\s/g, "-") +
