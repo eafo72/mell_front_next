@@ -16,6 +16,8 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 
 import { toast } from 'sonner';
 
+import { host } from "../config/constants";
+
 export const ProductPreviewCard = ({ item }) => {
   
   const addCartItem = useCartStore((state) => state.add_cart_item);
@@ -33,7 +35,7 @@ export const ProductPreviewCard = ({ item }) => {
   const [cantidad, setCantidad] = useState(1);
 
   const currentPageUrl =
-    "https://mell-front-next.vercel.app/shop_details/" +
+    host +"/shop_details/" +
     item.categoria +
     "/" +
     item.nombre.trim().replace(/\s/g, "-") +
@@ -131,6 +133,7 @@ export const ProductPreviewCard = ({ item }) => {
         });
 
         document.body.style.overflow = "unset";
+        document.body.style.pointerEvents = "auto";
         
         setQuickViewModal(false);
         mostrarAviso("Producto Agregado");
@@ -146,11 +149,13 @@ export const ProductPreviewCard = ({ item }) => {
   function closeQuickViewModal() {
     setQuickViewModal(false);
     document.body.style.overflow = "unset";
+    document.body.style.pointerEvents = "auto";
   }
 
   function openQuickViewModal() {
     setQuickViewModal(true);
     document.body.style.overflow = "hidden";
+    document.body.style.pointerEvents = "none";
   }
 
   const modalCustomStyles = {
