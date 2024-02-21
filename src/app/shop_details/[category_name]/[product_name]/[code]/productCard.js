@@ -16,7 +16,7 @@ import ImageGallery from "react-image-gallery";
 
 import { FacebookShareButton, FacebookIcon } from "react-share";
 
-import { host } from "../config/constants";
+import { host } from "../../../../../config/constants";
 
 export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) => {
 
