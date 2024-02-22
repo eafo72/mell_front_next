@@ -19113,7 +19113,7 @@ hr {
 }
 
 .fadeInRight{
-  animation:fadeInRight .7s ease backwards;
+  animation:fadeInRight .7s;
   -moz-animation: fadeInRight .7s; /* Firefox */
   -webkit-animation: fadeInRight .7s; /* Safari and Chrome */
   -o-animation: fadeInRight .7s; /* Opera */
@@ -19121,7 +19121,7 @@ hr {
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(300px);
+    transform: translateX(100px);
   }
   to {
     opacity: 1;

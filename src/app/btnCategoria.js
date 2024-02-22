@@ -46,11 +46,11 @@ export const BtnCategoria = ({categories}) => {
       key={activeRoute}
       className="btn btn_primary btn_rounded"
       href={activeRoute}
-      style={{ fontSize: "1.2rem", marginTop: "25px" }}
+      style={{ fontSize: "1.2rem", marginTop: "25px", minWidth:"20vw" }}
     >
-      <strong key={activeCategory} className="fadeInRight" >{activeCategory}
+      <span className="fadeInUp">{activeCategory}
         <i className="fas fa-angle-right" style={{ marginLeft: "20px" }}></i>
-      </strong>
+      </span>  
     </Link>
   );
 };
