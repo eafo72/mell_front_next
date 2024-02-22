@@ -44,12 +44,13 @@ export const BtnCategoria = ({categories}) => {
   return (
     <Link
       key={activeRoute}
-      className="btn btn_primary btn_rounded fadeInRight"
+      className="btn btn_primary btn_rounded"
       href={activeRoute}
       style={{ fontSize: "1.2rem", marginTop: "25px" }}
     >
-      {activeCategory}
-      <i className="fas fa-angle-right" style={{ marginLeft: "20px" }}></i>
+      <strong key={activeCategory} className="fadeInRight" >{activeCategory}
+        <i className="fas fa-angle-right" style={{ marginLeft: "20px" }}></i>
+      </strong>
     </Link>
   );
 };
