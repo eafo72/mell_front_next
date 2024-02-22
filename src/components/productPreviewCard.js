@@ -33,7 +33,7 @@ export const ProductPreviewCard = ({ item }) => {
   const [cantidad, setCantidad] = useState(1);
 
   const currentPageUrl =
-    "https://mell-front-next.vercel.app/shop_details/" +
+    "https://mellfashionboutique.com/shop_details/" +
     item.categoria +
     "/" +
     item.nombre.trim().replace(/\s/g, "-") +
