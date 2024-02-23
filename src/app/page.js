@@ -66,13 +66,13 @@ const Page = async () => {
                       {/*
                   <h3 className="small_title" data-animation="fadeInUp2" data-delay=".2s">Para cualquier industria</h3>
                   */}
-                      <h4
+                      <h1
                         className="big_title text-pink fadeInCustom"
                         style={{lineHeight:".75"}}
                       >
                         <span style={{ fontFamily: "Margarita" }}>Estilo</span>{" "}
                         <span className="text-brown">a tu alcance</span>
-                      </h4>
+                      </h1>
                       {/*
                   <p className="text-brown" data-animation="fadeInUp2" data-delay=".6s">
                     Para cualquier industria y en cualquier cantidad.
