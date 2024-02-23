@@ -41,7 +41,10 @@ export const metadata = {
   title: seoData.title,
   description: seoData.description,
   keywords: seoData.words,
-  author: "Goma Lab" 
+  author: "Goma Lab", 
+  alternates: {
+    canonical: "https://www.mellfashionboutique.com",
+  },
 };
 
 export default function RootLayout({ children }) {
