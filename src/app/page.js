@@ -2,9 +2,13 @@ import clienteAxios from "../config/axios";
 
 import Link from 'next/link'
 
-import {BtnCategoria} from "./btnCategoria"
+import {BtnCategoria} from "../components/btnCategoria"
 
 import {ProductPreviewCard} from "../components/productPreviewCard"
+
+import {CategoryItemMain} from "../components/CategoryItemMain"
+
+import {CategoryItemSmall} from "../components/CategoryItemSmall"
 
 const getCategories = async () => {
   try {
@@ -110,51 +114,9 @@ const Page = async () => {
                   .filter((element) => element.indexViewUp === "Sí")
                   .map((item1, index) => {
                     return index === 0 ? (
-                      <div key={index} className="grid-item w_50">
-                        <Link
-                          className="category_item_1"
-                          href={`/categories/Todas/${item1.nombre}`}
-                        >
-                          <img
-                            src={`${item1.imagen}`}
-                            alt={`${item1.imagen}`}
-                          />
-                          <span className="item_title">
-                            {item1.nombre}{" "}
-                            <i
-                              className="fas fa-angle-right"
-                              style={{
-                                position: "absolute",
-                                bottom: "20px",
-                                right: "30px",
-                              }}
-                            ></i>
-                          </span>
-                        </Link>
-                      </div>
+                      <CategoryItemMain item1={item1} index={index}/>
                     ) : (
-                      <div key={index} className="grid-item">
-                        <Link
-                          className="category_item_1"
-                          href={`/categories/Todas/${item1.nombre}`}
-                        >
-                          <img
-                            src={`${item1.imagen}`}
-                            alt={`${item1.imagen}`}
-                          />
-                          <span className="item_title">
-                            {item1.nombre}{" "}
-                            <i
-                              className="fas fa-angle-right"
-                              style={{
-                                position: "absolute",
-                                bottom: "20px",
-                                right: "30px",
-                              }}
-                            ></i>
-                          </span>
-                        </Link>
-                      </div>
+                      <CategoryItemSmall item1={item1} index={index}/>
                     );
                   })}
             </div>
