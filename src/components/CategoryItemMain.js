@@ -2,28 +2,10 @@
 
 import Link from "next/link";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-
 export const CategoryItemMain = ({item1, index}) => {
 
-    const ref = useRef(null);
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["0 1", "1.33 1"],
-    })
-
-    const scaleProgress =  useTransform(scrollYProgress,[0, 1], [0.8,1]);
-    const opacityProgress = useTransform(scrollYProgress,[0, 1], [0.6,1]);
-
   return (
-    <motion.div 
-    ref={ref}
-    style={{
-        scale: scaleProgress,
-        opacity: opacityProgress
-    }}
+    <div 
     key={index} 
     className="grid-item w_50">
     <Link
@@ -46,7 +28,7 @@ export const CategoryItemMain = ({item1, index}) => {
         ></i>
       </span>
     </Link>
-  </motion.div>
+  </div>
   )
 }
 
