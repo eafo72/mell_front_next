@@ -72,6 +72,8 @@ const Shop_details = async ({params}) => {
     }
 
 
+    //no podemos saber si hay stock todavia pq no ha seleccionado la talla y color
+    /*
     try {
       //getStock
       const res2 = await clienteAxios.get(`/almacen/stock-codigo/` + producto.codigo +`-`+ producto.talla[0].value  +`-`+ producto.color[0].value);
@@ -83,7 +85,7 @@ const Shop_details = async ({params}) => {
     } catch (error) {
       console.log(error);
     }
-     
+    */
   };
 
    
