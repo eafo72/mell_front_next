@@ -20,6 +20,7 @@ initMercadoPago('APP_USR-84f2c42a-e204-46f0-8dda-57e08f7579a9', {locale: 'es-MX'
 
 
 export const CartForm = () => {
+  const router = useRouter();
 
   const { cart, cart_subtotal, cart_descuento, cart_iva, cart_total } = useCartStore() //debe de ir aqui arriba por ser un hook y evitar errores
 
@@ -168,7 +169,7 @@ export const CartForm = () => {
           estatus_pago:"Pagado",
           estatus_envio:"Pendiente",
           vendedor:"Tienda online",
-          forma_entrega:formaEntrega,
+          forma_entrega:formaEntrega.value,
           forma_pago:"Mercado Pago",
           num_parcialidades:1,
           parcialidades:null
@@ -186,6 +187,33 @@ export const CartForm = () => {
   const onSubmit = async (formData) => {
     //console.log(formData);
 
+       //vemos si hay existencias de todo
+    try {
+      let res = await clienteAxios.post("/pedido/checkStock", {
+        tipo_venta: "Tienda online",
+        subtotal: cart_subtotal,
+        descuento: cart_descuento,
+        iva: cart_iva,
+        total: cart_total,
+        descripcion: cart,
+        usuario: "Cliente Web",
+        entregar_a: datos_entrega_nombre,
+        correo: datos_entrega_correo,
+        direccion_entrega: datos_entrega_direccion,
+        costo_envio: parseFloat(costo_envio),
+        telefono: datos_entrega_telefono,
+        estatus_pago: "Pagado",
+        estatus_envio: "Pendiente",
+        vendedor: "Tienda online",
+        forma_entrega: formaEntrega.value,
+        forma_pago: "Mercado Pago",
+        num_parcialidades: 1,
+        parcialidades: null,
+      });
+
+      console.log(res.data);
+
+      if (res.data.disponible == true) {
         
        try {
           const res = await clienteAxios({
@@ -238,7 +266,15 @@ export const CartForm = () => {
           mostrarMensaje(error);
         }
     
-
+      } else {
+        mostrarMensaje(
+          "Lo sentimos, no hay stock suficiente para surtir este pedido"
+        );
+      }
+    } catch (error) {
+      console.log(error);
+      mostrarMensaje(error.response.data.msg);
+    }
     
   };
    
