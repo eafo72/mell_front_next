@@ -95,7 +95,7 @@ const Aviso = async () => {
                   <p>
                     Área de Privacidad encargada de la seguridad de datos
                     personales en el Teléfono (55) 19914185, o al correo
-                    electrónico: contacto@juanchoelreydelrancho.com
+                    electrónico: contacto@mellfashionboutique.com
                   </p>
                   <p>
                     A través de estos canales usted podrá actualizar sus datos y

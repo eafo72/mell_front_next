@@ -49,8 +49,8 @@ const Terminos = async () => {
                   <h3>GENERALIDADES</h3>
 
                   <p>
-                    Esta página web es propiedad y está operado por Juancho el
-                    rey del rancho. Estos Términos establecen los términos y
+                    Esta página web es propiedad y está operado por Mell Fashion
+                    Boutique. Estos Términos establecen los términos y
                     condiciones bajo los cuales tu puedes usar nuestra página
                     web y comprar los productos ofrecidos por nosotros. Al
                     acceder o usar la página web Mell Fashion Boutique, usted
@@ -95,8 +95,8 @@ const Terminos = async () => {
                   <p>
                     Trataremos toda su información de forma confidencial y
                     solamente la utilizaremos de acuerdo con nuestra Política de
-                    privacidad. Cuando usted compre en el e-commerce de Juancho
-                    el rey del rancho, le solicitaremos que incluya sus datos
+                    privacidad. Cuando usted compre en el e-commerce de Mell
+                    Fashion Boutique, le solicitaremos que incluya sus datos
                     personales para poder identificarle, tales como su nombre,
                     dirección de correo electrónico, dirección de facturación,
                     dirección de entrega, tarjeta de crédito u otra información
@@ -113,8 +113,8 @@ const Terminos = async () => {
                     tiene 18 años de edad o más. Se obliga a pagar la totalidad
                     de los precios de cualquier compra que haga, ya sea con
                     tarjeta de crédito/débito concurrente con su orden en línea
-                    o por otro medio de pago aceptable para Juancho el rey del
-                    rancho, Usted se obliga a pagar todos los impuestos
+                    o por otro medio de pago aceptable para Mell Fashion
+                    Boutique, Usted se obliga a pagar todos los impuestos
                     aplicables. Si el pago no es recibido por nosotros de parte
                     del emisor de su tarjeta de crédito o débito o de sus
                     agentes, usted se obliga a pagar todas las cantidades
@@ -217,7 +217,7 @@ const Terminos = async () => {
                     circunstancias fuera de su razonable control. Para Cualquier
                     duda o comentario, puede ponerse en contacto con nosotros a
                     nuestros números telefónicos +52 (55) 19914185, a través del
-                    correo electrónico contacto@juanchoelreydelrancho.com
+                    correo electrónico contacto@mellfashionboutique.com
                   </p>
                 </div>
               </div>
