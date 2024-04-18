@@ -128,6 +128,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       transform: 'translate(-50%, -50%)',
       animation: 'fadeIn 1s'
     },
+    overlay: {zIndex: 1000}
   };
 
   const customStyles = {

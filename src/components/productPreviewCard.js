@@ -163,6 +163,7 @@ export const ProductPreviewCard = ({ item }) => {
       transform: "translate(-50%, -50%)",
       animation: "fadeIn 1s",
     },
+    overlay: {zIndex: 1000}
   };
 
   const customStyles = {
