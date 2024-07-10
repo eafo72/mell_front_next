@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import clienteAxios from "../../../../../config/axios";
+
 import Modal from 'react-modal';
 
 import Select from "react-select";
@@ -16,7 +18,9 @@ import ImageGallery from "react-image-gallery";
 
 import { FacebookShareButton, FacebookIcon } from "react-share";
 
-export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) => {
+export const ProductCard = ({ fotos_carrusel, producto, allSizes }) => {
+
+  
 
   const addCartItem = useCartStore((state) => state.add_cart_item)
   const { cart } = useCartStore()
@@ -50,6 +54,27 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
     setColor({ value: codigo, label: label });
   };
 
+  const getStock = async (size, colour) => {
+    try {
+      
+      const res2 = await clienteAxios.get(
+        `/almacen/stock-codigo/` + producto.codigo + `-` + size + `-` + colour
+      );
+
+      //console.log(res2.data.stock);
+
+      if(res2.data.stock.length == 0){
+        return 0;
+      }else{
+        return res2.data.stock[0].stockTotal;
+      }
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const mostrarMensaje = (mensaje) => {
     toast.error(mensaje);
   };
@@ -58,7 +83,7 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
     toast.success(mensaje);
   };
 
-  const addToCart = (event) => {
+  const addToCart = async (event) => {
     event.preventDefault();
 
     let onCart = 0;
@@ -72,6 +97,8 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
       mostrarMensaje("Debes escribir una cantidad");
     } else {
 
+      const stockTotal = await getStock(talla.value, color.value);
+
       //buscamos si ya tiene el mismo producto en el carrito
       for(let i=0; i < cart.length; i++){
         if(cart[i]['codigo'] == producto.codigo + "-" + talla.value + "-" + color.value){
@@ -82,9 +109,13 @@ export const ProductCard = ({ stockTotal, fotos_carrusel, producto, allSizes }) 
 
       if ((cantidad + onCart) > stockTotal) {
         if(onCart > 0){
-          mostrarMensaje("La existencia es de " + stockTotal + " y tienes " + onCart + " en el carrito de compras");
+          mostrarMensaje("La existencia disponible es de " + stockTotal + " y tienes " + onCart + " en el carrito de compras");
         }else{
-          mostrarMensaje("La existencia es de " + stockTotal );
+          if(stockTotal == 0){
+            mostrarMensaje("Lo sentimos por el momento el color y talla seleccionados está agotado");
+          }else{  
+            mostrarMensaje("La existencia disponible es de " + stockTotal );
+          }  
         }
       }else{
         addCartItem({

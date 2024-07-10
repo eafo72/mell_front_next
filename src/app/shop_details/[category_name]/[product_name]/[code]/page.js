@@ -44,7 +44,7 @@ const Shop_details = async ({params}) => {
   let allSizes;
   let fotos_carrusel;
   let productosRelacionados;
-  let stockTotal;
+  
 
   const getProduct = async () => {
     try {
@@ -71,21 +71,7 @@ const Shop_details = async ({params}) => {
       console.log(error);
     }
 
-
-    //no podemos saber si hay stock todavia pq no ha seleccionado la talla y color
-    /*
-    try {
-      //getStock
-      const res2 = await clienteAxios.get(`/almacen/stock-codigo/` + producto.codigo +`-`+ producto.talla[0].value  +`-`+ producto.color[0].value);
-            
-      //console.log(res2.data.stock[0].stockTotal);
-
-      stockTotal = res2.data.stock[0].stockTotal;
-
-    } catch (error) {
-      console.log(error);
-    }
-    */
+  
   };
 
    
@@ -127,7 +113,7 @@ const Shop_details = async ({params}) => {
         </div>
       </section>
 
-      <ProductCard stockTotal={stockTotal} fotos_carrusel={fotos_carrusel} producto={producto} allSizes={allSizes}/>
+      <ProductCard fotos_carrusel={fotos_carrusel} producto={producto} allSizes={allSizes}/>
 
       <RelatedProducts productosRelacionados={productosRelacionados} codigo={params.code}/>
 

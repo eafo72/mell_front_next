@@ -24,8 +24,6 @@ export const ProductPreviewCard = ({ item }) => {
   const [showContinueModal, setContinueModal] = useState(false);
   const [showQuickViewModal, setQuickViewModal] = useState(false);
 
-  const [stockTotal, setStockTotal] = useState(1000);
-
   const allSizes = item.talla;
 
   const [talla, setTalla] = useState();
@@ -44,22 +42,29 @@ export const ProductPreviewCard = ({ item }) => {
     setColor({ value: codigo, label: label });
   };
 
-  /*
+  
   const getStock = async (size, colour) => {
     try {
-      //getStock
+     
       const res2 = await clienteAxios.get(
         `/almacen/stock-codigo/` + item.codigo + `-` + size + `-` + colour
       );
 
-      //console.log(res2.data.stock[0].stockTotal);
+      //console.log(res2.data.stock);
 
-      setStockTotal(res2.data.stock[0].stockTotal);
+      if(res2.data.stock.length == 0){
+        return 0;
+      }else{
+        return res2.data.stock[0].stockTotal;
+      }
+
+
     } catch (error) {
       console.log(error);
     }
+
   };
- */
+ 
 
   const mostrarMensaje = (mensaje) => {
     toast.error(mensaje);
@@ -82,8 +87,8 @@ export const ProductPreviewCard = ({ item }) => {
     } else if (cantidad === "" || cantidad === undefined) {
       mostrarMensaje("Debes escribir una cantidad");
     } else {
-      //vemos cuanto hay en stock  OJO NO PUDIMOS SABER STOCK PQ ESTAMOS EN MODO CLIENT
-      // await getStock(talla.value, color.value);
+      
+      const stockTotal = await getStock(talla.value, color.value);
 
       //buscamos si ya tiene el mismo producto en el carrito
       for (let i = 0; i < cart.length; i++) {
@@ -97,16 +102,14 @@ export const ProductPreviewCard = ({ item }) => {
       }
 
       if (cantidad + onCart > stockTotal) {
-        if (onCart > 0) {
-          mostrarMensaje(
-            "La existencia es de " +
-              stockTotal +
-              " y tienes " +
-              onCart +
-              " en el carrito de compras"
-          );
-        } else {
-          mostrarMensaje("La existencia es de " + stockTotal);
+        if(onCart > 0){
+          mostrarMensaje("La existencia disponible es de " + stockTotal + " y tienes " + onCart + " en el carrito de compras");
+        }else{
+          if(stockTotal == 0){
+            mostrarMensaje("Lo sentimos por el momento el color y talla seleccionados está agotado");
+          }else{  
+            mostrarMensaje("La existencia disponible es de " + stockTotal );
+          }  
         }
       } else {
         addCartItem({
