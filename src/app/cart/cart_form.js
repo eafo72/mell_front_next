@@ -17,6 +17,8 @@ import { CardPayment } from '@mercadopago/sdk-react';
 import { initMercadoPago } from '@mercadopago/sdk-react'
 initMercadoPago('APP_USR-84f2c42a-e204-46f0-8dda-57e08f7579a9', {locale: 'es-MX'}); //'YOUR_PUBLIC_KEY')
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 export const CartForm = () => {
@@ -66,7 +68,7 @@ export const CartForm = () => {
       mostrarMensaje("Debes escribir el costo de envío");    
     }else if(datos_entrega_nombre === "" || datos_entrega_nombre === undefined) {
       mostrarMensaje("Debes escribir el nombre en datos de entrega");    
-    }else if(datos_entrega_direccion === "" || datos_entrega_direccion === undefined) {
+    }else if(formaEntrega.value != 'Directo en Tienda' && datos_entrega_direccion === "" || formaEntrega.value != 'Directo en Tienda' && datos_entrega_direccion === undefined) {
       mostrarMensaje("Debes escribir la direccion en datos de entrega");    
     }else if(datos_entrega_correo === "" || datos_entrega_correo === undefined) {
       mostrarMensaje("Debes escribir el correo en datos de entrega");    

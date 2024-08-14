@@ -179,10 +179,11 @@ const AllCategories = async ({ params }) => {
                               params.marca.replace("-", " ") != "Todas"
                                 ? element.categoria === item1.nombre &&
                                   element.fotos_carrusel.length > 0 &&
-                                  element.marca ===
-                                    params.marca.replace("-", " ")
+                                  element.marca === params.marca.replace("-", " ") &&
+                                  element.estatus === "Activo"
                                 : element.categoria === item1.nombre &&
-                                  element.fotos_carrusel.length > 0
+                                  element.fotos_carrusel.length > 0 &&
+                                  element.estatus === "Activo"
                             )
                             .map((item) => (
                               <div key={item._id} className="col">
@@ -209,10 +210,11 @@ const AllCategories = async ({ params }) => {
                               params.marca.replace("-", " ") != "Todas"
                                 ? element.categoria === item1.nombre &&
                                   element.fotos_carrusel.length > 0 &&
-                                  element.marca ===
-                                    params.marca.replace("-", " ")
+                                  element.marca === params.marca.replace("-", " ") &&
+                                  element.estatus === "Activo"
                                 : element.categoria === item1.nombre &&
-                                  element.fotos_carrusel.length > 0
+                                  element.fotos_carrusel.length > 0 &&
+                                  element.estatus === "Activo"
                             )
                             .map((item) => (
                               <div key={item._id} className="col">

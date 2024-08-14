@@ -232,7 +232,8 @@ const Page = async () => {
                       .filter(
                         (element) =>
                           element.categoria === categories[0]["nombre"] &&
-                          element.fotos_carrusel.length > 0
+                          element.fotos_carrusel.length > 0 &&
+                          element.estatus === "Activo"
                       )
                       .map((item, index) => {
                         return index < 8 ? (
@@ -270,7 +271,8 @@ const Page = async () => {
                             .filter(
                               (element) =>
                                 element.categoria === item1.nombre &&
-                                element.fotos_carrusel.length > 0
+                                element.fotos_carrusel.length > 0 &&
+                                element.estatus === "Activo"
                             )
                             .map((item, index) => {
                               return index < 8 ? (
