@@ -175,7 +175,7 @@ export const NavbarOptions = ({ categories }) => {
       <div id="menu_categorias" className="collapse show">
         {categories && categories.map((item, index) => (
           
-            <Link href={`/categories/Todas/${item.nombre}`}  onClick={() => {closeNav()}} key={index} className="submenu" >
+            <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}  onClick={() => {closeNav()}} key={index} className="submenu" >
               <img src={item.imagen} alt={item.imagen} style={{height:"30px",width:"30px", borderRadius:"50px"}}/> {item.nombre}
               <FontAwesomeIcon
                 icon={faArrowRight}
