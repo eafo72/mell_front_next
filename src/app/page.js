@@ -355,6 +355,7 @@ const Page = async () => {
                               src={`${item1.imagen}`}
                               alt={`${item1.imagen}`}
                               style={{ minWidth: "100%" }}
+                              unoptimized={true}
                             />
                           </Link>
                           <div className="item_content">

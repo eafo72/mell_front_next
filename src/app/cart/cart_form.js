@@ -350,6 +350,7 @@ export const CartForm = () => {
                           src={item.foto_principal}
                           className="img-fluid"
                           alt={item.foto_principal}
+                          unoptimized={true}
                         />
                       </div>
                       <div className="item_content">

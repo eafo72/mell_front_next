@@ -15,6 +15,7 @@ export const CategoryItemMain = ({item1, index}) => {
       <img
         src={`${item1.imagen}`}
         alt={`${item1.imagen}`}
+        unoptimized={true}
       />
       <span className="item_title">
         {item1.nombre}{" "}

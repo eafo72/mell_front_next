@@ -67,7 +67,7 @@ export const NavbarOptions = ({ categories }) => {
                             <li key={index}>
                               <a href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
                                 <span className="item_image" style={{backgroundColor:"transparent"}}>
-                                  <img src={item.imagen} style={{height:"60px"}} alt={item.imagen} className="img-fluid"/>
+                                  <img src={item.imagen} style={{height:"60px"}} alt={item.imagen} className="img-fluid" unoptimized={true}/>
                                 </span>
                                 <span className="item_title">{item.nombre}</span>
                               </a>
@@ -89,7 +89,7 @@ export const NavbarOptions = ({ categories }) => {
                             <li key={index}>
                               <a href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}>
                                 <span className="item_image" style={{backgroundColor:"transparent"}}>
-                                  <img src={item.imagen} style={{height:"60px"}} alt={item.imagen} className="img-fluid"/>
+                                  <img src={item.imagen} style={{height:"60px"}} alt={item.imagen} className="img-fluid" unoptimized={true}/>
                                 </span>
                                 <span className="item_title">{item.nombre}</span>
                               </a>
@@ -176,7 +176,7 @@ export const NavbarOptions = ({ categories }) => {
         {categories && categories.map((item, index) => (
           
             <Link href={`/categories/Todas/${item.nombre.trim().replace(/\s/g, "-")}`}  onClick={() => {closeNav()}} key={index} className="submenu" >
-              <img src={item.imagen} alt={item.imagen} style={{height:"30px",width:"30px", borderRadius:"50px"}}/> {item.nombre}
+              <img src={item.imagen} alt={item.imagen} style={{height:"30px",width:"30px", borderRadius:"50px"}} unoptimized={true}/> {item.nombre}
               <FontAwesomeIcon
                 icon={faArrowRight}
                 style={{position:"absolute",right:"25px"}}
