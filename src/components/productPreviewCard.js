@@ -224,7 +224,7 @@ export const ProductPreviewCard = ({ item }) => {
                   .replace(/\s/g, "-")}/${item.codigo}`}
               >
                 <img
-                  src={`${item.foto_principal}`}
+                  src={`${item.foto_principal}?v=${Date.now()}`}
                   alt={`${item.foto_principal}`}
                   className="img-fluid"
                   unoptimized={true}
@@ -250,7 +250,7 @@ export const ProductPreviewCard = ({ item }) => {
                     .replace(/\s/g, "-")}/${item.codigo}`}
                 >
                   <img
-                    src={`${item2.image}`}
+                    src={`${item2.image}?v=${Date.now()}`}
                     alt={`${item2.image}`}
                     className="img-fluid"
                     unoptimized={true}
@@ -288,7 +288,7 @@ export const ProductPreviewCard = ({ item }) => {
               aria-selected="true"
             >
               <img
-                src={`${item.foto_principal}`}
+                src={`${item.foto_principal}?v=${Date.now()}`}
                 alt={`${item.foto_principal}`}
                 className="img-fluid"
                 unoptimized={true}
@@ -307,7 +307,7 @@ export const ProductPreviewCard = ({ item }) => {
                 aria-selected="false"
               >
                 <img
-                  src={`${item2.image}`}
+                  src={`${item2.image}?v=${Date.now()}`}
                   alt={`${item2.image}`}
                   className="img-fluid"
                   unoptimized={true}
@@ -399,7 +399,7 @@ export const ProductPreviewCard = ({ item }) => {
                     <div className="col col-lg-6 col-md-8">
                       <div className="sd_image_carousel p-0">
                         <img
-                          src={`${item.foto_principal}`}
+                          src={`${item.foto_principal}?v=${Date.now()}`}
                           alt={`${item.foto_principal}`}
                           className="img-fluid"
                           unoptimized={true}

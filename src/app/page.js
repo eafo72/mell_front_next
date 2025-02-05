@@ -352,7 +352,7 @@ const Page = async () => {
                             href={`/categories/Todas/${item1.nombre.trim().replace(/\s/g,"-")}`}
                           >
                             <img
-                              src={`${item1.imagen}`}
+                              src={`${item1.imagen}?v=${Date.now()}`}
                               alt={`${item1.imagen}`}
                               style={{ minWidth: "100%" }}
                               unoptimized={true}
