@@ -276,7 +276,7 @@ export const ProductPreviewCard = ({ item }) => {
           </ul>
         </div>
 
-        {/*tabs buttons*/}
+        {/*tabs buttons
         <ul className="nav child_image" role="tablist">
           <li role="presentation">
             <button
@@ -318,6 +318,7 @@ export const ProductPreviewCard = ({ item }) => {
           })}
           
         </ul>
+        */}
 
         {/*info producto*/}
         <div className="shop_content">
