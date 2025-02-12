@@ -231,7 +231,9 @@ export const ProductPreviewCard = ({ item }) => {
                 />
               </Link>
             </div>
-            {/*fotos carrusel*/}        
+
+
+            {/*fotos carrusel     
             {item.fotos_carrusel.map((item2, index) => {
               return index < 4 ? 
             (
@@ -259,6 +261,8 @@ export const ProductPreviewCard = ({ item }) => {
               </div>
             ):(<></>)
             })}
+            */}   
+
           </div>
 
           {/*hover links*/}
